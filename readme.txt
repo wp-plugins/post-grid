@@ -17,7 +17,7 @@ Easy way to display post as grid by query from any custom post types.
 
 ### Post Grid by http://paratheme.com
 
-* [See the Live demo!&raquo;](http://paratheme.com/demo/post-grid/)
+* [See the Live demo!&raquo;](http://paratheme.com/demo/post-grid/post-grid/)
 
 
 
