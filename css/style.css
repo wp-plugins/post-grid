@@ -1,0 +1,267 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.post-grid-container .social-icon {
+  color: rgb(255, 0, 0);
+  position: absolute;
+  transition: all 0.3s ease 0s;
+}
+
+
+.post-grid-container .LeftTop {
+  top: 10px;
+  left: -100px;
+}
+.post-grid-container .thumb:hover .LeftTop {
+  left: 10px;
+}
+
+
+
+.post-grid-container .LeftBottom {
+  bottom: 10px;
+  left: -100px;
+}
+.post-grid-container .thumb:hover .LeftBottom {
+  left: 10px;
+}
+.post-grid-container .RightTop {
+  top: 10px;
+  right: -100px;
+}
+.post-grid-container .thumb:hover .RightTop {
+  right: 10px;
+}
+.post-grid-container .RightBottom {
+  bottom: 10px;
+  right: -100px;
+}
+
+.post-grid-container .thumb:hover .RightBottom {
+  right: 10px;
+}
+
+
+.post-grid-container .social-icon span {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.post-grid-container .social-icon span a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+
+.post-grid-container .social-icon .fb {
+  background: url("icons/facebook.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.post-grid-container .social-icon .twitter {
+  background: url("icons/twitter.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.post-grid-container .social-icon .gplus {
+  background: url("icons/gplus.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+
+
+.post-grid-container .meta {
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding: 10px 0;
+  text-align: left;
+}
+
+.post-grid-container .meta span {
+  display: inline-block;
+  font-size: 11px;
+  height: 20px;
+  margin-right: 15px;
+  padding-left: 20px;
+}
+
+.post-grid-container .meta span a {
+  text-decoration: none;
+}
+
+
+
+.post-grid-container .meta .date {
+  background: url("icons/time.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+
+}
+
+.post-grid-container .meta .author {
+  background: url("icons/author.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+
+}
+.post-grid-container .meta .cayegory {
+  background: url("icons/cayegory.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+
+}
+.post-grid-container .meta .tags {
+  background: url("icons/tags.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+
+}
+.post-grid-container .meta .comments {
+  background: url("icons/comments.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+
+}
+
+
+
+
+
+/*   ##############################################   */
+
+
+
+
+.post-grid-container .link {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  	transition: all 0.5s ease 0s;
+}
+
+
+.post-grid-container .TopMiddle {
+	top: -100%;
+
+}
+
+.post-grid-container .thumb:hover .TopMiddle {
+   top: 30%;
+
+}
+.post-grid-container .BottomMiddle {
+	bottom: -100%;
+}
+
+.post-grid-container .thumb:hover .BottomMiddle {
+   bottom: 50%;
+
+}
+.post-grid-container .LeftMiddle {
+	left: -100%;
+	top: 30%;
+
+}
+
+.post-grid-container .thumb:hover .LeftMiddle {
+   left: 0;
+
+}
+
+
+.post-grid-container .RightMiddle {
+	right: -100%;
+	top: 30%;
+}
+
+.post-grid-container .thumb:hover .RightMiddle {
+   right: 0;
+
+}
+
+
+
+.post-grid-container .link a {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 3px;
+  color: rgb(255, 255, 255) !important;
+  font-size: 12px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+/*   ##############################################   */
+
+.post-grid-container .zoomIn {
+  transform: scale(0);
+}
+
+.post-grid-container .thumb:hover .zoomIn {
+   transform: scale(1.2);
+
+}
+
+.post-grid-container .fadeIn {
+  opacity: 0;
+}
+
+.post-grid-container .thumb:hover .fadeIn {
+  opacity: 1;
+}
+
+.post-grid-container .rotate {
+  transform: rotate(0deg);
+}
+
+.post-grid-container .thumb:hover .rotate {
+  transform: rotate(360deg);
+}
+
+
+
+
+/*   ###################paginate###########################   */
+
+
+.post-grid-container .paginate {
+
+}
+
+.post-grid-container .paginate .page-numbers {
+  background: none repeat scroll 0 0 rgb(31, 191, 69);
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  margin: 3px 0;
+  padding: 3px 8px;
+  text-decoration: none;
+}
+
+.post-grid-container .paginate .page-numbers:hover {
+  background: none repeat scroll 0 0 rgb(14, 140, 44);
+}
+
+.post-grid-container .paginate span{
+
+}
+.post-grid-container .paginate a{
+
+}
+
+.post-grid-container .paginate .current {
+  background: none repeat scroll 0 0 rgb(14, 140, 44);
+}
+
+
+
+
+.post-grid-container .load-more {
+  margin-top: 50px;
+  text-align: center;
+}
+.post-grid-container .load-more .load {
+  background: none repeat scroll 0 0 rgb(31, 191, 69);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 7px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
