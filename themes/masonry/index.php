@@ -1,7 +1,7 @@
 <?php
 
 
-function post_grid_themes_flat($post_id)
+function post_grid_themes_masonry($post_id)
 	{
 		
 		$post_grid_themes = get_post_meta( $post_id, 'post_grid_themes', true );
@@ -35,7 +35,7 @@ function post_grid_themes_flat($post_id)
 		
 
 		$html  = '';
-		$html .= '<div style="background:url('.$post_grid_bg_img.');" class="post-grid-container-main" >'; 	
+		$html .= '<div style="background:url('.$post_grid_bg_img.');" class="post-grid-container-main" >'; 		
 		$html .= '<div class="post-grid-container post-grid-container-'.$post_id.' '.$post_grid_themes.' " >'; 
 
 		
@@ -81,10 +81,15 @@ function post_grid_themes_flat($post_id)
 		
 		
 		</div >';
+		
+		
+		$html .= '<div class="title" >'.get_the_title().'</div >';
+		
+		
 		$html .= '</div>';
 		
 		
-		
+		/*
 		
 	$categories = get_the_category();
 	$separator = ', ';
@@ -108,31 +113,31 @@ function post_grid_themes_flat($post_id)
         $tags_links .= '<a href="'.get_tag_link($tag->term_id).'" >#'.$tag->name.'</a> ';
 
     }
+		*/
 		
+		//$total_comments = wp_count_comments( get_the_ID() );
 		
-		$total_comments = wp_count_comments( get_the_ID() );
+		//$html .= '<div class="meta" >';
 		
-		$html .= '<div class="meta" >';
+		//if($post_grid_meta_date_display == 'yes')		
+		//$html .= '<span class="date">'.get_the_date('M d Y').'</span>';	
 		
-		if($post_grid_meta_date_display == 'yes')		
-		$html .= '<span class="date">'.get_the_date('M d Y').'</span>';	
+		//if($post_grid_meta_author_display == 'yes')
+		//$html .= '<span class="author">'.get_the_author().'</span>';
 		
-		if($post_grid_meta_author_display == 'yes')
-		$html .= '<span class="author">'.get_the_author().'</span>';
+		//if(!empty($category_output) && $post_grid_meta_categories_display == 'yes')
+		//$html .= '<span class="cayegory">'.trim($category_output, $separator).'</span>';
 		
-		if(!empty($category_output) && $post_grid_meta_categories_display == 'yes')
-		$html .= '<span class="cayegory">'.trim($category_output, $separator).'</span>';
+		//if(!empty($tags_links) && $post_grid_meta_tags_display == 'yes')
+		//$html .= '<span class="tags">'.$tags_links.'</span>';
 		
-		if(!empty($tags_links) && $post_grid_meta_tags_display == 'yes')
-		$html .= '<span class="tags">'.$tags_links.'</span>';
-		
-		if($post_grid_meta_comments_display == 'yes')		
-		$html .= '<span class="comments">'.$total_comments->approved.'</span>';	
+		//if($post_grid_meta_comments_display == 'yes')		
+		//$html .= '<span class="comments">'.$total_comments->approved.'</span>';	
 			
-		$html .= '</div >';	
+		//$html .= '</div >';	
 	
 		
-		$html .= '<div class="title" >'.get_the_title().'</div >';
+		
 		
 		$content_main =apply_filters('the_content', get_the_content());
 		$content =  wp_trim_words( $content_main , 30, ' <a class="read-more" href="'.get_the_permalink().'">[...]</a>' );
@@ -140,7 +145,7 @@ function post_grid_themes_flat($post_id)
 		
 		
 		
-		$html .= '<div class="content" >'.$content.'</div >';
+		//$html .= '<div class="content" >'.$content.'</div >';
 
 
 
@@ -154,9 +159,23 @@ function post_grid_themes_flat($post_id)
 		
 		
 		
-		
+	
 		
 				
+				
+
+		//$html .= '<div class="load-more"><span postid="'.$post_id.'" per_page="'.$post_grid_post_per_page.'" offset="'.$post_grid_post_per_page.'" class="load">Load More</span></div >';
+
+		
+		
+		
+		wp_reset_query();
+		endif;
+			
+		$html .= '</div >';
+		
+		
+		
 		if($post_grid_pagination_display == 'yes')
 			{
 				$html .= '<div class="paginate">';
@@ -169,18 +188,31 @@ function post_grid_themes_flat($post_id)
 					) );
 			
 				$html .= '</div >';	
-			}					
+			}	
+		
+		
+		
+		$html .= '</div >';		
+		$html .= '<script>
+docReady( function() {
+  var container = document.querySelector(".post-grid-container");
+  var msnry = new Masonry( container, {
 
-		//$html .= '<div class="load-more"><span postid="'.$post_id.'" per_page="'.$post_grid_post_per_page.'" offset="'.$post_grid_post_per_page.'" class="load">Load More</span></div >';
-
+  });
+});
+</script>';		
 		
 		
 		
-		wp_reset_query();
-		endif;
-			
-		$html .= '</div>';
-		$html .= '</div>';
 		
+		
+		
+		
+		
+		
+		
+		
+		
+				
 		return $html;
 	}

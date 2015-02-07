@@ -65,12 +65,17 @@ function meta_boxes_post_grid_input( $post ) {
 	
 	$post_grid_post_per_page = get_post_meta( $post->ID, 'post_grid_post_per_page', true );
 	$post_grid_themes = get_post_meta( $post->ID, 'post_grid_themes', true );
+	$post_grid_bg_img = get_post_meta( $post->ID, 'post_grid_bg_img', true );	
+	$post_grid_thumb_size = get_post_meta( $post->ID, 'post_grid_thumb_size', true );	
+	$post_grid_empty_thumb = get_post_meta( $post->ID, 'post_grid_empty_thumb', true );
+			
 	$post_grid_social_share_position = get_post_meta( $post->ID, 'post_grid_social_share_position', true );	
 	$post_grid_pagination_display = get_post_meta( $post->ID, 'post_grid_pagination_display', true );		
 	
 	
 	$post_grid_read_more_position = get_post_meta( $post->ID, 'post_grid_read_more_position', true );
-	$post_grid_read_more_hov_in_style = get_post_meta( $post->ID, 'post_grid_read_more_hov_in_style', true );		
+	$post_grid_read_more_hov_in_style = get_post_meta( $post->ID, 'post_grid_read_more_hov_in_style', true );
+	$post_grid_read_more_text = get_post_meta( $post->ID, 'post_grid_read_more_text', true );			
 	
 	$post_grid_posttype = get_post_meta( $post->ID, 'post_grid_posttype', true );	
 	
@@ -157,8 +162,167 @@ function meta_boxes_post_grid_input( $post ) {
 					<select name="post_grid_themes"  >
                     <option value="flat" <?php if($post_grid_themes=="flat")echo "selected"; ?>>Flat</option>
                     <option value="rounded" <?php if($post_grid_themes=="rounded")echo "selected"; ?>>Rounded</option>                    
-                  
+                    <option value="masonry" <?php if($post_grid_themes=="masonry")echo "selected"; ?>>Masonry</option>                            
                     </select>                 
+                </div>
+                
+				<div class="option-box">
+                    <p class="option-title"><?php _e('Background Image.','post_grid'); ?></p>
+                    <p class="option-info"><?php _e('Background image for post grid area.','post_grid'); ?></p>
+                                           
+            <script>
+            jQuery(document).ready(function(jQuery)
+                {
+                        jQuery(".post_grid_bg_img_list li").click(function()
+                            { 	
+                                jQuery('.post_grid_bg_img_list li.bg-selected').removeClass('bg-selected');
+                                jQuery(this).addClass('bg-selected');
+                                
+                                var post_grid_bg_img = jQuery(this).attr('data-url');
+            
+                                jQuery('#post_grid_bg_img').val(post_grid_bg_img);
+                                
+                            })	
+            
+                                
+                })
+            
+            </script> 
+                    
+            
+            <?php
+            
+            
+            
+                $dir_path = post_grid_plugin_dir."css/bg/";
+                $filenames=glob($dir_path."*.png*");
+            
+            
+                $post_grid_bg_img = get_post_meta( $post->ID, 'post_grid_bg_img', true );
+                
+                if(empty($post_grid_bg_img))
+                    {
+                    $post_grid_bg_img = "";
+                    }
+            
+            
+                $count=count($filenames);
+                
+            
+                $i=0;
+                echo "<ul class='post_grid_bg_img_list' >";
+            
+                while($i<$count)
+                    {
+                        $filelink= str_replace($dir_path,"",$filenames[$i]);
+                        
+                        $filelink= post_grid_plugin_url."css/bg/".$filelink;
+                        
+                        
+                        if($post_grid_bg_img==$filelink)
+                            {
+                                echo '<li  class="bg-selected" data-url="'.$filelink.'">';
+                            }
+                        else
+                            {
+                                echo '<li   data-url="'.$filelink.'">';
+                            }
+                        
+                        
+                        echo "<img  width='70px' height='50px' src='".$filelink."' />";
+                        echo "</li>";
+                        $i++;
+                    }
+                    
+                echo "</ul>";
+                
+                echo "<input style='width:100%;' value='".$post_grid_bg_img."'    placeholder='Please select image or left blank' id='post_grid_bg_img' name='post_grid_bg_img'  type='text' />";
+            
+            
+            
+            ?>
+				</div> 
+                
+                
+				<div class="option-box">
+                    <p class="option-title"><?php _e('Thumbnail Size.','post_grid'); ?></p>
+                    <p class="option-info"><?php _e('Thumbnail size of member on grid.','post_grid'); ?></p>
+                    <select name="post_grid_thumb_size" >
+                    <option value="none" <?php if($post_grid_thumb_size=="none") echo "selected"; ?>>None</option>
+                    <option value="thumbnail" <?php if($post_grid_thumb_size=="thumbnail") echo "selected"; ?>>Thumbnail</option>
+                    <option value="medium" <?php if($post_grid_thumb_size=="medium") echo "selected"; ?>>Medium</option>
+                    <option value="large" <?php if($post_grid_thumb_size=="large") echo "selected"; ?>>Large</option>                               
+                    <option value="full" <?php if($post_grid_thumb_size=="full") echo "selected"; ?>>Full</option>   
+
+                    </select>
+                </div>  
+                
+				<div class="option-box">
+                    <p class="option-title">Empty Thumbnail</p>
+                    <p class="option-info"></p>
+					<input type="text" name="post_grid_empty_thumb" id="post_grid_empty_thumb" value="<?php if(!empty($post_grid_empty_thumb)) echo $post_grid_empty_thumb; ?>" /><br />
+                    <input id="post_grid_empty_thumb_upload" class="post_grid_empty_thumb_upload button" type="button" value="Upload Image" />
+                       <br />
+                       
+                       
+                        <?php
+                        	if(empty($post_grid_empty_thumb))
+								{
+								?>
+                                <img class="post_grid_empty_thumb_display" width="300px" src="<?php echo wcps_plugin_url.'css/no-thumb.png'; ?>" />
+                                <?php
+								}
+							else
+								{
+								?>
+                                <img class="post_grid_empty_thumb_display" width="300px" src="<?php echo $post_grid_empty_thumb; ?>" />
+                                <?php
+								}
+						?>
+                       
+                       
+                       
+                       
+                       
+					<script>
+                        jQuery(document).ready(function($){
+
+                            var custom_uploader; 
+                         
+                            jQuery('#post_grid_empty_thumb_upload').click(function(e) {
+													
+                                e.preventDefault();
+                         
+                                //If the uploader object has already been created, reopen the dialog
+                                if (custom_uploader) {
+                                    custom_uploader.open();
+                                    return;
+                                }
+                        
+                                //Extend the wp.media object
+                                custom_uploader = wp.media.frames.file_frame = wp.media({
+                                    title: 'Choose Image',
+                                    button: {
+                                        text: 'Choose Image'
+                                    },
+                                    multiple: false
+                                });
+                        
+                                //When a file is selected, grab the URL and set it as the text field's value
+                                custom_uploader.on('select', function() {
+                                    attachment = custom_uploader.state().get('selection').first().toJSON();
+                                    jQuery('#post_grid_empty_thumb').val(attachment.url);
+                                    jQuery('.post_grid_empty_thumb_display').attr('src',attachment.url);									
+                                });
+                         
+                                //Open the uploader dialog
+                                custom_uploader.open();
+                         
+                            });
+                            
+                            
+                        })
+                    </script>      
                 </div>
                 
                 
@@ -202,7 +366,19 @@ function meta_boxes_post_grid_input( $post ) {
                     <option value="fadeIn" <?php if($post_grid_read_more_hov_in_style=="fadeIn")echo "selected"; ?>>FadeIn</option>
                     <option value="rotate" <?php if($post_grid_read_more_hov_in_style=="rotate")echo "selected"; ?>>Rotate</option>                                       
                   
-                    </select>                 
+                    </select>
+                    
+                    
+                    <p class="option-title">Read more Text</p>
+                    <p class="option-info"></p>
+					<input type="text" name="post_grid_read_more_text" value="<?php if(!empty($post_grid_read_more_text)) echo $post_grid_read_more_text; else echo 'Read More'; ?>" /><br />        
+                    
+                    
+                    
+                    
+                    
+                    
+                                   
                 </div>
                 
                 
@@ -347,11 +523,17 @@ function meta_boxes_post_grid_save( $post_id ) {
   // Sanitize user input.
 	$post_grid_post_per_page = sanitize_text_field( $_POST['post_grid_post_per_page'] );	
 	$post_grid_themes = sanitize_text_field( $_POST['post_grid_themes'] );
+	$post_grid_bg_img = sanitize_text_field( $_POST['post_grid_bg_img'] );	
+	
+	$post_grid_thumb_size = sanitize_text_field( $_POST['post_grid_thumb_size'] );	
+	$post_grid_empty_thumb = sanitize_text_field( $_POST['post_grid_empty_thumb'] );	
+		
 	$post_grid_social_share_position = sanitize_text_field( $_POST['post_grid_social_share_position'] );	
 	$post_grid_pagination_display = sanitize_text_field( $_POST['post_grid_pagination_display'] );		
 		
 	$post_grid_read_more_position = stripslashes_deep( $_POST['post_grid_read_more_position'] );
-	$post_grid_read_more_hov_in_style = stripslashes_deep( $_POST['post_grid_read_more_hov_in_style'] );	
+	$post_grid_read_more_hov_in_style = stripslashes_deep( $_POST['post_grid_read_more_hov_in_style'] );
+	$post_grid_read_more_text = stripslashes_deep( $_POST['post_grid_read_more_text'] );		
 			
 	$post_grid_posttype = stripslashes_deep( $_POST['post_grid_posttype'] );		
 		
@@ -370,12 +552,17 @@ function meta_boxes_post_grid_save( $post_id ) {
 
   // Update the meta field in the database.
 	update_post_meta( $post_id, 'post_grid_post_per_page', $post_grid_post_per_page );	
-	update_post_meta( $post_id, 'post_grid_themes', $post_grid_themes );	
+	update_post_meta( $post_id, 'post_grid_themes', $post_grid_themes );
+	update_post_meta( $post_id, 'post_grid_bg_img', $post_grid_bg_img );	
+	
+	update_post_meta( $post_id, 'post_grid_thumb_size', $post_grid_thumb_size );	
+	update_post_meta( $post_id, 'post_grid_empty_thumb', $post_grid_empty_thumb );	
 	update_post_meta( $post_id, 'post_grid_social_share_position', $post_grid_social_share_position );	
 	update_post_meta( $post_id, 'post_grid_pagination_display', $post_grid_pagination_display );		
 	
 	update_post_meta( $post_id, 'post_grid_read_more_position', $post_grid_read_more_position );
-	update_post_meta( $post_id, 'post_grid_read_more_hov_in_style', $post_grid_read_more_hov_in_style );		
+	update_post_meta( $post_id, 'post_grid_read_more_hov_in_style', $post_grid_read_more_hov_in_style );
+	update_post_meta( $post_id, 'post_grid_read_more_text', $post_grid_read_more_text );			
 	
 	update_post_meta( $post_id, 'post_grid_posttype', $post_grid_posttype );	
 	

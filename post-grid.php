@@ -30,7 +30,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'includes/post-grid-functions.php');
 
 require_once( plugin_dir_path( __FILE__ ) . 'themes/flat/index.php');
 require_once( plugin_dir_path( __FILE__ ) . 'themes/rounded/index.php');
-
+require_once( plugin_dir_path( __FILE__ ) . 'themes/masonry/index.php');
 
 function post_grid_init_scripts()
 	{
@@ -38,14 +38,15 @@ function post_grid_init_scripts()
 		wp_enqueue_script('post_grid_js', plugins_url( '/js/scripts.js' , __FILE__ ) , array( 'jquery' ));
 		wp_localize_script('post_grid_js', 'post_grid_ajax', array( 'post_grid_ajaxurl' => admin_url( 'admin-ajax.php')));
 		wp_enqueue_style('post_grid_style', post_grid_plugin_url.'css/style.css');
-
+		wp_enqueue_script('masonry.pkgd.min', plugins_url( '/js/masonry.pkgd.min.js' , __FILE__ ) , array( 'jquery' ));
 		//ParaAdmin
 		wp_enqueue_style('ParaAdmin', post_grid_plugin_url.'ParaAdmin/css/ParaAdmin.css');
 		wp_enqueue_script('ParaAdmin', plugins_url( 'ParaAdmin/js/ParaAdmin.js' , __FILE__ ) , array( 'jquery' ));
 		
 		// Style for themes
 		wp_enqueue_style('post-grid-style-flat', post_grid_plugin_url.'themes/flat/style.css');			
-		wp_enqueue_style('post-grid-rounded-style-flat', post_grid_plugin_url.'themes/rounded/style.css');	
+		wp_enqueue_style('post-grid-style-rounded', post_grid_plugin_url.'themes/rounded/style.css');	
+		wp_enqueue_style('post-grid-style-masonry', post_grid_plugin_url.'themes/masonry/style.css');			
 
 		
 	}
@@ -95,6 +96,10 @@ function post_grid_display($atts, $content = null ) {
 				{
 					$html.= post_grid_themes_rounded($post_id);
 				}	
+			elseif($post_grid_themes== "masonry")
+				{
+					$html.= post_grid_themes_masonry($post_id);
+				}					
 			else
 				{
 					$html.= post_grid_themes_flat($post_id);

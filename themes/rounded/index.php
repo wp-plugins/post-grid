@@ -4,17 +4,22 @@
 function post_grid_themes_rounded($post_id)
 	{
 		
-		$post_grid_themes = get_post_meta( $post_id, 'post_grid_themes', true );		
+		$post_grid_themes = get_post_meta( $post_id, 'post_grid_themes', true );
+		$post_grid_bg_img = get_post_meta( $post_id, 'post_grid_bg_img', true );		
+		$post_grid_thumb_size = get_post_meta( $post_id, 'post_grid_thumb_size', true );
+		$post_grid_empty_thumb = get_post_meta( $post_id, 'post_grid_empty_thumb', true );		
+			
 		$post_grid_post_per_page = get_post_meta( $post_id, 'post_grid_post_per_page', true );
 		$post_grid_social_share_position = get_post_meta( $post_id, 'post_grid_social_share_position', true );
 		$post_grid_pagination_display = get_post_meta( $post_id, 'post_grid_pagination_display', true );		
 		
 		$post_grid_read_more_position = get_post_meta( $post_id, 'post_grid_read_more_position', true );
-		$post_grid_read_more_hov_in_style = get_post_meta( $post_id, 'post_grid_read_more_hov_in_style', true );			
+		$post_grid_read_more_hov_in_style = get_post_meta( $post_id, 'post_grid_read_more_hov_in_style', true );
+		$post_grid_read_more_text = get_post_meta( $post_id, 'post_grid_read_more_text', true );					
 		
 		$post_grid_bg_img = get_post_meta( $post_id, 'post_grid_bg_img', true );
 		$post_grid_width = get_post_meta( $post_id, 'post_grid_width', true );			
-		$post_grid_thumb_width = get_post_meta( $post_id, 'post_grid_thumb_width', true );	
+		//$post_grid_thumb_width = get_post_meta( $post_id, 'post_grid_thumb_width', true );	
 		$post_grid_thumb_height = get_post_meta( $post_id, 'post_grid_thumb_height', true );	
 
 		$post_grid_posttype = get_post_meta( $post_id, 'post_grid_posttype', true );
@@ -30,6 +35,7 @@ function post_grid_themes_rounded($post_id)
 		
 
 		$html  = '';
+		$html .= '<div style="background:url('.$post_grid_bg_img.');" class="post-grid-container-main" >'; 	
 		$html .= '<div class="post-grid-container post-grid-container-'.$post_id.' '.$post_grid_themes.' " >'; 
 
 		
@@ -45,14 +51,18 @@ function post_grid_themes_rounded($post_id)
 		if ( $wp_query->have_posts() ) :
 		
 		while ( $wp_query->have_posts() ) : $wp_query->the_post();
-		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), $wcps_items_thumb_size );
-		$thumb_url = $thumb['0'];		
-		
+		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), $post_grid_thumb_size );
+		$thumb_url = $thumb['0'];	
+			
+		if(empty($thumb_url))
+			{
+			$thumb_url = $post_grid_empty_thumb;
+			}
 		
 		$html .= '<div class="grid-single" style="max-width:'.$post_grid_width.';" >';	
 		$html .= '<div class="thumb" style=" width:'.$post_grid_thumb_width.';height:'.$post_grid_thumb_height.';" ><img src="'.$thumb_url.'" />';
 		
-		$html .= '<div class="link '.$post_grid_read_more_position.' '.$post_grid_read_more_hov_in_style.'" ><a href="'.get_the_permalink().'">Read More</a></div >';
+		$html .= '<div class="link '.$post_grid_read_more_position.' '.$post_grid_read_more_hov_in_style.'" ><a href="'.get_the_permalink().'">'.$post_grid_read_more_text.'</a></div >';
 		$html .= '<div class="social-icon '.$post_grid_social_share_position.'" >
 			<span class="fb">
 				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='.get_permalink().'"> </a>
@@ -168,6 +178,8 @@ function post_grid_themes_rounded($post_id)
 		endif;
 			
 		$html .= '</div >';
+		$html .= '</div >';		
+		
 		
 		return $html;
 	}
