@@ -70,8 +70,6 @@
 
 
 .post-grid-container .meta {
-  border-bottom: 1px solid rgb(221, 221, 221);
-  padding: 10px 0;
   text-align: left;
 }
 
@@ -80,7 +78,7 @@
   font-size: 11px;
   height: 20px;
   margin-right: 15px;
-  padding-left: 20px;
+  padding: 10px 0 0 20px;
 }
 
 .post-grid-container .meta span a {
@@ -90,24 +88,24 @@
 
 
 .post-grid-container .meta .date {
-  background: url("icons/time.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+  background: url("icons/time.png") no-repeat scroll 0 10px rgba(0, 0, 0, 0);
 
 }
 
 .post-grid-container .meta .author {
-  background: url("icons/author.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+  background: url("icons/author.png") no-repeat scroll 0 10px rgba(0, 0, 0, 0);
 
 }
 .post-grid-container .meta .cayegory {
-  background: url("icons/cayegory.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+  background: url("icons/cayegory.png") no-repeat scroll 0 10px rgba(0, 0, 0, 0);
 
 }
 .post-grid-container .meta .tags {
-  background: url("icons/tags.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+  background: url("icons/tags.png") no-repeat scroll 0 10px rgba(0, 0, 0, 0);
 
 }
 .post-grid-container .meta .comments {
-  background: url("icons/comments.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+  background: url("icons/comments.png") no-repeat scroll 0 10px rgba(0, 0, 0, 0);
 
 }
 

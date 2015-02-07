@@ -16,8 +16,17 @@ function post_grid_themes_flat($post_id)
 		//$post_grid_thumb_width = get_post_meta( $post_id, 'post_grid_thumb_width', true );	
 		$post_grid_thumb_height = get_post_meta( $post_id, 'post_grid_thumb_height', true );	
 
-		$post_grid_posttype = get_post_meta( $post_id, 'post_grid_posttype', true );	
-
+		$post_grid_posttype = get_post_meta( $post_id, 'post_grid_posttype', true );
+		
+		$post_grid_meta_author_display = get_post_meta( $post_id, 'post_grid_meta_author_display', true );		
+		$post_grid_meta_date_display = get_post_meta( $post_id, 'post_grid_meta_date_display', true );				
+		$post_grid_meta_categories_display = get_post_meta( $post_id, 'post_grid_meta_categories_display', true );
+		$post_grid_meta_tags_display = get_post_meta( $post_id, 'post_grid_meta_tags_display', true );		
+		$post_grid_meta_comments_display = get_post_meta( $post_id, 'post_grid_meta_comments_display', true );		
+		
+		
+		
+		
 
 		$html  = '';
 		$html .= '<div class="post-grid-container post-grid-container-'.$post_id.' flat " >'; // themes class, hover effect class,
@@ -92,17 +101,7 @@ function post_grid_themes_flat($post_id)
 		
 		
 		
-		$html .= '<div class="meta" >
-		<span class="date">'.get_the_date('M d Y').'</span>		
-		<span class="author">'.get_the_author().'</span>';
-		
-		if(!empty($category_output))
-		$html .= '<span class="cayegory">'.trim($category_output, $separator).'</span>';
-		
-		if(!empty($tags_links))
-		$html .= '<span class="tags">'.$tags_links.'</span>';	
-		$html .= '<span class="comments">'.$total_comments->approved.'</span>		
-		</div >';		
+	
 		
 		$html .= '<div class="title" >'.get_the_title().'</div >';
 		
@@ -112,12 +111,27 @@ function post_grid_themes_flat($post_id)
 		
 		
 		
-		$html .= '<div class="content" >'.$content;
+		$html .= '<div class="content" >'.$content.'</div >';
 
-		$html .= '</div >';		
 
+		$html .= '<div class="meta" >';
 		
+		if($post_grid_meta_date_display == 'yes')		
+		$html .= '<span class="date">'.get_the_date('M d Y').'</span>';	
 		
+		if($post_grid_meta_author_display == 'yes')
+		$html .= '<span class="author">'.get_the_author().'</span>';
+		
+		if(!empty($category_output) && $post_grid_meta_categories_display == 'yes')
+		$html .= '<span class="cayegory">'.trim($category_output, $separator).'</span>';
+		
+		if(!empty($tags_links) && $post_grid_meta_tags_display == 'yes')
+		$html .= '<span class="tags">'.$tags_links.'</span>';
+		
+		if($post_grid_meta_comments_display == 'yes')		
+		$html .= '<span class="comments">'.$total_comments->approved.'</span>';	
+			
+		$html .= '</div >';	
 		
 		
 		

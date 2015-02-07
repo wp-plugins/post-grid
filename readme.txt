@@ -1,7 +1,7 @@
 === Post Grid ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
-	Tags: Post Grid, Grid
+	Tags: post grid, grid, custom post grid, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter, 
 	Requires at least: 3.8
 	Tested up to: 4.1
 	Stable tag: 1.0
@@ -12,7 +12,9 @@
 
 == Description ==
 
-Easy way to display post as grid by query from any custom post types.
+Query post from your custom post types and create
+
+Use any where by short-codes and easy customize via short-code generator page, you can display or hide grid meta items like post authors, post date, post categories, post tags and etc.
 
 
 ### Post Grid by http://paratheme.com
@@ -25,10 +27,17 @@ Easy way to display post as grid by query from any custom post types.
 
 * Fully responsive and mobile ready.
 * Unlimited grid anywhere.
-* Query any post-type.
-* different Theme.
-* Pagination.
-
+* Query any post type.
+* Query from multiple post type.
+* Different Theme.
+* Pagination support.
+* Custom number grid post per page.
+* Display or hide post meta's.
+* Awesome hover effect.
+* Social share buttons.
+* Social share buttons different positions.
+* Custom grid width.
+* Custom grid thumbnail height.
 
 
 == Installation ==

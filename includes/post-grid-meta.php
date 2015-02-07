@@ -77,6 +77,13 @@ function meta_boxes_post_grid_input( $post ) {
 	$post_grid_width = get_post_meta( $post->ID, 'post_grid_width', true );		
 	$post_grid_thumb_width = get_post_meta( $post->ID, 'post_grid_thumb_width', true );	
 	$post_grid_thumb_height = get_post_meta( $post->ID, 'post_grid_thumb_height', true );	
+	
+	$post_grid_meta_author_display = get_post_meta( $post->ID, 'post_grid_meta_author_display', true );	
+	$post_grid_meta_date_display = get_post_meta( $post->ID, 'post_grid_meta_date_display', true );		
+	$post_grid_meta_categories_display = get_post_meta( $post->ID, 'post_grid_meta_categories_display', true );	
+	$post_grid_meta_tags_display = get_post_meta( $post->ID, 'post_grid_meta_tags_display', true );		
+	$post_grid_meta_comments_display = get_post_meta( $post->ID, 'post_grid_meta_comments_display', true );	
+		
 
 
 ?>
@@ -194,11 +201,53 @@ function meta_boxes_post_grid_input( $post ) {
                 </div>
                 
                 
+				<div class="option-box">
+                    <p class="option-title">Display Author</p>
+                    <p class="option-info"></p>
+					<select name="post_grid_meta_author_display"  >
+                    <option value="yes" <?php if($post_grid_meta_author_display=="yes")echo "selected"; ?>>Yes</option>
+                    <option value="no" <?php if($post_grid_meta_author_display=="no")echo "selected"; ?>>No</option>                  
+                    </select>            
+                </div> 
+                
+				<div class="option-box">
+                    <p class="option-title">Display Date</p>
+                    <p class="option-info"></p>
+					<select name="post_grid_meta_date_display"  >
+                    <option value="yes" <?php if($post_grid_meta_date_display=="yes")echo "selected"; ?>>Yes</option>
+                    <option value="no" <?php if($post_grid_meta_date_display=="no")echo "selected"; ?>>No</option>                  
+                    </select>            
+                </div>
+                
+				<div class="option-box">
+                    <p class="option-title">Display Categories</p>
+                    <p class="option-info"></p>
+					<select name="post_grid_meta_categories_display"  >
+                    <option value="yes" <?php if($post_grid_meta_categories_display=="yes")echo "selected"; ?>>Yes</option>
+                    <option value="no" <?php if($post_grid_meta_categories_display=="no")echo "selected"; ?>>No</option>                  
+                    </select>            
+                </div>
+                
+				<div class="option-box">
+                    <p class="option-title">Display Tags</p>
+                    <p class="option-info"></p>
+					<select name="post_grid_meta_tags_display"  >
+                    <option value="yes" <?php if($post_grid_meta_tags_display=="yes")echo "selected"; ?>>Yes</option>
+                    <option value="no" <?php if($post_grid_meta_tags_display=="no")echo "selected"; ?>>No</option>                  
+                    </select>            
+                </div>
                 
                 
-                
-                
-                
+				<div class="option-box">
+                    <p class="option-title">Display Comments</p>
+                    <p class="option-info"></p>
+					<select name="post_grid_meta_comments_display"  >
+                    <option value="yes" <?php if($post_grid_meta_comments_display=="yes")echo "selected"; ?>>Yes</option>
+                    <option value="no" <?php if($post_grid_meta_comments_display=="no")echo "selected"; ?>>No</option>                  
+                    </select>            
+                </div>                          
+                               
+                                 
                 
 
             </li>
@@ -305,8 +354,13 @@ function meta_boxes_post_grid_save( $post_id ) {
 	$post_grid_thumb_width = sanitize_text_field( $_POST['post_grid_thumb_width'] );
 	$post_grid_thumb_height = sanitize_text_field( $_POST['post_grid_thumb_height'] );	
 	
+	$post_grid_meta_author_display = sanitize_text_field( $_POST['post_grid_meta_author_display'] );	
+	$post_grid_meta_date_display = sanitize_text_field( $_POST['post_grid_meta_date_display'] );
+	$post_grid_meta_categories_display = sanitize_text_field( $_POST['post_grid_meta_categories_display'] );	
+	$post_grid_meta_tags_display = sanitize_text_field( $_POST['post_grid_meta_tags_display'] );	
+	$post_grid_meta_comments_display = sanitize_text_field( $_POST['post_grid_meta_comments_display'] );		
 	
-	
+		
 	
 
   // Update the meta field in the database.
@@ -322,7 +376,14 @@ function meta_boxes_post_grid_save( $post_id ) {
 	
 	update_post_meta( $post_id, 'post_grid_width', $post_grid_width );	
 	update_post_meta( $post_id, 'post_grid_thumb_width', $post_grid_thumb_width );
-	update_post_meta( $post_id, 'post_grid_thumb_height', $post_grid_thumb_height );	
+	update_post_meta( $post_id, 'post_grid_thumb_height', $post_grid_thumb_height );
+	
+	update_post_meta( $post_id, 'post_grid_meta_author_display', $post_grid_meta_author_display );		
+	update_post_meta( $post_id, 'post_grid_meta_date_display', $post_grid_meta_date_display );	
+	update_post_meta( $post_id, 'post_grid_meta_categories_display', $post_grid_meta_categories_display );		
+	update_post_meta( $post_id, 'post_grid_meta_tags_display', $post_grid_meta_tags_display );
+	update_post_meta( $post_id, 'post_grid_meta_comments_display', $post_grid_meta_comments_display );	
+	
 	
 
 }
