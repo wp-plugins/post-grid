@@ -10,38 +10,65 @@
 }
 
 
-.post-grid-container .LeftTop {
+.post-grid-container .social-icon.LeftTop {
   top: 10px;
   left: -100px;
 }
-.post-grid-container .thumb:hover .LeftTop {
+.post-grid-container .thumb:hover .social-icon.LeftTop {
   left: 10px;
 }
 
 
 
-.post-grid-container .LeftBottom {
+.post-grid-container .social-icon.LeftBottom {
   bottom: 10px;
   left: -100px;
 }
-.post-grid-container .thumb:hover .LeftBottom {
+.post-grid-container .thumb:hover .social-icon.LeftBottom {
   left: 10px;
 }
-.post-grid-container .RightTop {
+.post-grid-container .social-icon.RightTop {
   top: 10px;
   right: -100px;
 }
-.post-grid-container .thumb:hover .RightTop {
+.post-grid-container .thumb:hover .social-icon.RightTop {
   right: 10px;
 }
-.post-grid-container .RightBottom {
+.post-grid-container .social-icon.RightBottom {
   bottom: 10px;
   right: -100px;
 }
 
-.post-grid-container .thumb:hover .RightBottom {
+.post-grid-container .thumb:hover .social-icon.RightBottom {
   right: 10px;
 }
+
+
+.post-grid-container .social-icon.TopMiddle {
+  text-align: center;
+  top: -100px;
+  width: 100%;
+}
+
+.post-grid-container .thumb:hover .social-icon.TopMiddle {
+  top: 15%;
+}
+
+
+.post-grid-container .social-icon.BottomMiddle {
+  text-align: center;
+  bottom: -100px;
+  width: 100%;
+}
+
+.post-grid-container .thumb:hover .social-icon.BottomMiddle {
+  bottom: 15%;
+}
+
+
+
+
+
 
 
 .post-grid-container .social-icon span {
@@ -126,41 +153,41 @@
 }
 
 
-.post-grid-container .TopMiddle {
+.post-grid-container .link.TopMiddle {
 	top: -100%;
 
 }
 
-.post-grid-container .thumb:hover .TopMiddle {
+.post-grid-container .thumb:hover .link.TopMiddle {
    top: 30%;
 
 }
-.post-grid-container .BottomMiddle {
+.post-grid-container .link.BottomMiddle {
 	bottom: -100%;
 }
 
-.post-grid-container .thumb:hover .BottomMiddle {
+.post-grid-container .thumb:hover .link.BottomMiddle {
    bottom: 50%;
 
 }
-.post-grid-container .LeftMiddle {
+.post-grid-container .link.LeftMiddle {
 	left: -100%;
 	top: 30%;
 
 }
 
-.post-grid-container .thumb:hover .LeftMiddle {
+.post-grid-container .thumb:hover .link.LeftMiddle {
    left: 0;
 
 }
 
 
-.post-grid-container .RightMiddle {
+.post-grid-container .link.RightMiddle {
 	right: -100%;
 	top: 30%;
 }
 
-.post-grid-container .thumb:hover .RightMiddle {
+.post-grid-container .thumb:hover .link.RightMiddle {
    right: 0;
 
 }
@@ -179,28 +206,28 @@
 
 /*   ##############################################   */
 
-.post-grid-container .zoomIn {
+.post-grid-container .link.zoomIn {
   transform: scale(0);
 }
 
-.post-grid-container .thumb:hover .zoomIn {
+.post-grid-container .thumb:hover .link.zoomIn {
    transform: scale(1.2);
 
 }
 
-.post-grid-container .fadeIn {
+.post-grid-container .link.fadeIn {
   opacity: 0;
 }
 
-.post-grid-container .thumb:hover .fadeIn {
+.post-grid-container .thumb:hover .link.fadeIn {
   opacity: 1;
 }
 
-.post-grid-container .rotate {
+.post-grid-container .link.rotate {
   transform: rotate(0deg);
 }
 
-.post-grid-container .thumb:hover .rotate {
+.post-grid-container .thumb:hover .link.rotate {
   transform: rotate(360deg);
 }
 

@@ -156,6 +156,7 @@ function meta_boxes_post_grid_input( $post ) {
                     <p class="option-info"></p>
 					<select name="post_grid_themes"  >
                     <option value="flat" <?php if($post_grid_themes=="flat")echo "selected"; ?>>Flat</option>
+                    <option value="rounded" <?php if($post_grid_themes=="rounded")echo "selected"; ?>>Rounded</option>                    
                   
                     </select>                 
                 </div>
@@ -168,7 +169,11 @@ function meta_boxes_post_grid_input( $post ) {
                     <option value="LeftTop" <?php if($post_grid_social_share_position=="LeftTop")echo "selected"; ?>>Left Top</option>
                     <option value="LeftBottom" <?php if($post_grid_social_share_position=="LeftBottom")echo "selected"; ?>>Left Bottom</option>                    
                     <option value="RightTop" <?php if($post_grid_social_share_position=="RightTop")echo "selected"; ?>>Right Top</option>                    
-                    <option value="RightBottom" <?php if($post_grid_social_share_position=="RightBottom")echo "selected"; ?>>Right Bottom</option>                    
+                    <option value="RightBottom" <?php if($post_grid_social_share_position=="RightBottom")echo "selected"; ?>>Right Bottom</option>
+                    
+                    <option value="TopMiddle" <?php if($post_grid_social_share_position=="TopMiddle")echo "selected"; ?>>Top Middle</option>                    
+                    <option value="BottomMiddle" <?php if($post_grid_social_share_position=="BottomMiddle")echo "selected"; ?>>Bottom Middle</option>                    
+                                      
                   
                     </select>                 
                 </div>               

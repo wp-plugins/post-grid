@@ -12,7 +12,7 @@
 
 == Description ==
 
-Query post from your custom post types and create
+Query post from your custom post types and create awesome grid.
 
 Use any where by short-codes and easy customize via short-code generator page, you can display or hide grid meta items like post authors, post date, post categories, post tags and etc.
 

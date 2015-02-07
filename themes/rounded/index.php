@@ -1,7 +1,7 @@
 <?php
 
 
-function post_grid_themes_flat($post_id)
+function post_grid_themes_rounded($post_id)
 	{
 		
 		$post_grid_themes = get_post_meta( $post_id, 'post_grid_themes', true );		
@@ -14,7 +14,7 @@ function post_grid_themes_flat($post_id)
 		
 		$post_grid_bg_img = get_post_meta( $post_id, 'post_grid_bg_img', true );
 		$post_grid_width = get_post_meta( $post_id, 'post_grid_width', true );			
-		//$post_grid_thumb_width = get_post_meta( $post_id, 'post_grid_thumb_width', true );	
+		$post_grid_thumb_width = get_post_meta( $post_id, 'post_grid_thumb_width', true );	
 		$post_grid_thumb_height = get_post_meta( $post_id, 'post_grid_thumb_height', true );	
 
 		$post_grid_posttype = get_post_meta( $post_id, 'post_grid_posttype', true );
@@ -50,7 +50,7 @@ function post_grid_themes_flat($post_id)
 		
 		
 		$html .= '<div class="grid-single" style="max-width:'.$post_grid_width.';" >';	
-		$html .= '<div class="thumb" style="max-height:'.$post_grid_thumb_height.';" ><img src="'.$thumb_url.'" />';
+		$html .= '<div class="thumb" style=" width:'.$post_grid_thumb_width.';height:'.$post_grid_thumb_height.';" ><img src="'.$thumb_url.'" />';
 		
 		$html .= '<div class="link '.$post_grid_read_more_position.' '.$post_grid_read_more_hov_in_style.'" ><a href="'.get_the_permalink().'">Read More</a></div >';
 		$html .= '<div class="social-icon '.$post_grid_social_share_position.'" >

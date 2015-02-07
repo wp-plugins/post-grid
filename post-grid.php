@@ -29,7 +29,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'includes/post-grid-functions.php');
 //Themes php files
 
 require_once( plugin_dir_path( __FILE__ ) . 'themes/flat/index.php');
-
+require_once( plugin_dir_path( __FILE__ ) . 'themes/rounded/index.php');
 
 
 function post_grid_init_scripts()
@@ -45,7 +45,7 @@ function post_grid_init_scripts()
 		
 		// Style for themes
 		wp_enqueue_style('post-grid-style-flat', post_grid_plugin_url.'themes/flat/style.css');			
-
+		wp_enqueue_style('post-grid-rounded-style-flat', post_grid_plugin_url.'themes/rounded/style.css');	
 
 		
 	}
@@ -91,7 +91,15 @@ function post_grid_display($atts, $content = null ) {
 					$html.= post_grid_themes_flat($post_id);
 				}
 			
-				
+			elseif($post_grid_themes== "rounded")
+				{
+					$html.= post_grid_themes_rounded($post_id);
+				}	
+			else
+				{
+					$html.= post_grid_themes_flat($post_id);
+				}					
+							
 				
 
 return $html;
