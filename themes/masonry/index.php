@@ -194,9 +194,9 @@ function post_grid_themes_masonry($post_id)
 		
 		$html .= '</div >';		
 		$html .= '<script>
-docReady( function() {
+jQuery(document).ready(function($) {
   var container = document.querySelector(".post-grid-container");
-  var msnry = new Masonry( container, {
+  var msnry = new Masonry( container, {isFitWidth: true
 
   });
 });
