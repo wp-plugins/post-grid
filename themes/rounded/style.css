@@ -19,7 +19,6 @@
   border-radius: 50%;
   box-shadow: 0 0 3px 0 rgb(153, 153, 153);
   margin-bottom: 25px;
-  max-height: 200px;
   overflow: hidden;
   position: relative;
 }

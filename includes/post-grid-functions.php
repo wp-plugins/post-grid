@@ -150,7 +150,7 @@ add_action('wp_ajax_nopriv_post_grid_get_taxonomy_category', 'post_grid_get_taxo
 
 
 
-
+// solve error replace #038; by &
 
 function post_grid_fix_pagination($link) {
 	
