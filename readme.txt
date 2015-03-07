@@ -19,6 +19,7 @@ Use any where by short-codes and easy customize via short-code generator page, y
 
 ### Post Grid by http://paratheme.com
 
+* [Buy Premium! &raquo;](http://paratheme.com/items/post-grid-awesome-grid-for-any-post-type/)
 * [See the Live demo!&raquo;](http://paratheme.com/demo/post-grid/)
 
 
@@ -38,6 +39,11 @@ Use any where by short-codes and easy customize via short-code generator page, y
 * Social share buttons different positions.
 * Custom grid width.
 * Custom grid thumbnail height.
+
+<strong>Premium Features</strong><br />
+
+* Query post from taxonomy & terms.
+* Total 4 different layout.
 
 
 == Installation ==

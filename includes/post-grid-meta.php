@@ -289,7 +289,7 @@ function meta_boxes_post_grid_input( $post ) {
                         	if(empty($post_grid_empty_thumb))
 								{
 								?>
-                                <img class="post_grid_empty_thumb_display" width="300px" src="<?php echo wcps_plugin_url.'css/no-thumb.png'; ?>" />
+                                <img class="post_grid_empty_thumb_display" width="300px" src="<?php echo post_grid_plugin_url.'css/no-thumb.png'; ?>" />
                                 <?php
 								}
 							else
