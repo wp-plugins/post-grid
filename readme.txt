@@ -42,7 +42,8 @@ Use any where by short-codes and easy customize via short-code generator page, y
 <strong>Premium Features</strong><br />
 
 * Query post from taxonomy & terms.
-
+* WooCommerce ready
+* Display Meta Fields on gird.
 
 == Installation ==
 
