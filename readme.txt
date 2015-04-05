@@ -3,8 +3,8 @@
 	Donate link: http://paratheme.com
 	Tags: post grid, grid, custom post grid, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter, 
 	Requires at least: 3.8
-	Tested up to: 4.1
-	Stable tag: 1.1
+	Tested up to: 4.1.1
+	Stable tag: 1.2
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,6 @@ Use any where by short-codes and easy customize via short-code generator page, y
 
 ### Post Grid by http://paratheme.com
 
-* [Buy Premium! &raquo;](http://paratheme.com/items/post-grid-awesome-grid-for-any-post-type/)
 * [See the Live demo!&raquo;](http://paratheme.com/demo/post-grid/)
 
 
@@ -39,11 +38,6 @@ Use any where by short-codes and easy customize via short-code generator page, y
 * Social share buttons different positions.
 * Custom grid width.
 * Custom grid thumbnail height.
-
-<strong>Premium Features</strong><br />
-
-* Query post from taxonomy & terms.
-* Total 4 different layout.
 
 
 == Installation ==
@@ -75,6 +69,9 @@ then paste this shortcode anywhere in your page to display grid<br />
 == Changelog ==
 
 
+	= 1.2 =
+	* 05/03/2015 remove-  removed some options.
+	* 05/03/2015 add-  grid layout builder.
 
 	= 1.1 =
     * 03/03/2015 add-  option for display/hide social share buttons.	

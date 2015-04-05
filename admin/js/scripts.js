@@ -1,41 +1,16 @@
-
 jQuery(document).ready(function($)
 	{
+
+
 		
-
-		
-		$(document).on('click', '.load-more .load', function()
-			{	
-				$(this).html('loading...');
-				var postid = parseInt($(this).attr('postid'));
-				var per_page = parseInt($(this).attr('per_page'));
-				var offset = parseInt($(this).attr('offset'));	
-
-			$.ajax(
-				{
-			type: 'POST',
-			url:timeline_um_ajax.timeline_um_ajaxurl,
-			data: {"action": "timeline_um_comments_by_postid", "postid":postid,"per_page":per_page,"offset":offset},
-			success: function(data)
-					{	
-	
-						$('.post-grid-container-'+postid).append(data);
-						$('.comment-load-more-'+postid).attr('offset',(offset+per_page));
-
-
-					
-					}
-				});
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		$(document).on('click', '.post-grid-reset-taxonomy', function()
+			{
+				$('.post_grid_taxonomy_category').prop('checked', false);
+				$('.post_grid_taxonomy').prop('checked', false);
+				
+				
 			})
+
 		
 		
 		
@@ -82,6 +57,35 @@ jQuery(document).ready(function($)
 		
 	
  		
+		
+
+		$(document).on('click', '.post-grid-builder .canvas .remove', function()
+			{
+				$(this).parent().parent().remove();
+				
+			})
+
+
+
+
+
+
+		$(document).on('click', '.post-grid-builder .canvas .header', function()
+			{
+				
+				if($(this).parent().hasClass('active'))
+					{
+						$(this).parent().removeClass('active');
+					}
+				else
+					{
+						$(this).parent().addClass('active');
+					}
+				
+			})
+
+
+
 
 	});	
 

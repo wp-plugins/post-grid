@@ -70,14 +70,10 @@ function meta_boxes_post_grid_input( $post ) {
 	$post_grid_bg_img = get_post_meta( $post->ID, 'post_grid_bg_img', true );	
 	$post_grid_thumb_size = get_post_meta( $post->ID, 'post_grid_thumb_size', true );	
 	$post_grid_empty_thumb = get_post_meta( $post->ID, 'post_grid_empty_thumb', true );
-			
-	$post_grid_social_share_position = get_post_meta( $post->ID, 'post_grid_social_share_position', true );
+
 	$post_grid_social_share_display = get_post_meta( $post->ID, 'post_grid_social_share_display', true );	
 	$post_grid_pagination_display = get_post_meta( $post->ID, 'post_grid_pagination_display', true );		
-	
-	
-	$post_grid_read_more_position = get_post_meta( $post->ID, 'post_grid_read_more_position', true );
-	$post_grid_read_more_hov_in_style = get_post_meta( $post->ID, 'post_grid_read_more_hov_in_style', true );
+
 	$post_grid_excerpt_count = get_post_meta( $post->ID, 'post_grid_excerpt_count', true );	
 	$post_grid_read_more_text = get_post_meta( $post->ID, 'post_grid_read_more_text', true );			
 	
@@ -86,23 +82,26 @@ function meta_boxes_post_grid_input( $post ) {
 	$post_grid_posttype = get_post_meta( $post->ID, 'post_grid_posttype', true );	
 	
 	$post_grid_items_width = get_post_meta( $post->ID, 'post_grid_items_width', true );		
-	//$post_grid_thumb_width = get_post_meta( $post->ID, 'post_grid_thumb_width', true );	
 	$post_grid_thumb_height = get_post_meta( $post->ID, 'post_grid_thumb_height', true );	
 	
 	$post_grid_meta_author_display = get_post_meta( $post->ID, 'post_grid_meta_author_display', true );	
 	$post_grid_meta_date_display = get_post_meta( $post->ID, 'post_grid_meta_date_display', true );		
 	$post_grid_meta_categories_display = get_post_meta( $post->ID, 'post_grid_meta_categories_display', true );	
 	$post_grid_meta_tags_display = get_post_meta( $post->ID, 'post_grid_meta_tags_display', true );		
-	$post_grid_meta_comments_display = get_post_meta( $post->ID, 'post_grid_meta_comments_display', true );	
-		
-
+	$post_grid_meta_comments_display = get_post_meta( $post->ID, 'post_grid_meta_comments_display', true );
+	
+	
+	$post_grid_items = get_post_meta( $post->ID, 'post_grid_items', true );		
+	$post_grid_wrapper = get_post_meta( $post->ID, 'post_grid_wrapper', true );	
+	$post_grid_items_display = get_post_meta( $post->ID, 'post_grid_items_display', true );			
+	$post_grid_post_meta_fields = get_post_meta( $post->ID, 'post_grid_post_meta_fields', true );	
 
 ?>
 
-    <div class="para-settings">
+    <div class="para-settings post-grid-settings">
         <div class="option-box">
             <p class="option-title">Shortcode</p>
-            <p class="option-info">Copy this shortcode and paste on page or post where you want to display slider. <br />Use PHP code to your themes file to display slider.</p>
+            <p class="option-info">Copy this shortcode and paste on page or post where you want to display post grid. <br />Use PHP code to your themes file to display post grid.</p>
 			<textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" >[post_grid <?php echo ' id="'.$post->ID.'"';?> ]</textarea>
         <br /><br />
         PHP Code:<br />
@@ -114,6 +113,7 @@ function meta_boxes_post_grid_input( $post ) {
             <li nav="1" class="nav1 active">Options</li>
             <li nav="2" class="nav2">Style</li>
             <li nav="3" class="nav3">Content</li>
+            <li nav="4" class="nav4">Grid Builder</li>            
         </ul> <!-- tab-nav end -->
         
 		<ul class="box">
@@ -163,7 +163,12 @@ function meta_boxes_post_grid_input( $post ) {
                     <p class="option-info"></p>
 					<select name="post_grid_themes"  >
                     <option value="flat" <?php if($post_grid_themes=="flat")echo "selected"; ?>>Flat</option>
-                    <option value="rounded" <?php if($post_grid_themes=="rounded")echo "selected"; ?>>Rounded</option>                      
+                    <option value="rounded" <?php if($post_grid_themes=="rounded")echo "selected"; ?>>Rounded</option>
+                  
+                                       
+                    
+                    
+                                    
                     </select>                 
                 </div>
                 
@@ -346,7 +351,7 @@ function meta_boxes_post_grid_input( $post ) {
                 </div>
                 
 				<div class="option-box">
-                    <p class="option-title">Display Social Share Buttons Display</p>
+                    <p class="option-title">Display Social Share Buttons</p>
                     <p class="option-info"></p>
 					<select name="post_grid_social_share_display"  >
                     <option value="yes" <?php if($post_grid_social_share_display=="yes")echo "selected"; ?>>Yes</option>
@@ -359,62 +364,11 @@ function meta_boxes_post_grid_input( $post ) {
                 
                 
                 
-				<div class="option-box">
-                    <p class="option-title">Social Share buttons position</p>
-                    <p class="option-info"></p>
-					<select name="post_grid_social_share_position"  >
-                    <option value="LeftTop" <?php if($post_grid_social_share_position=="LeftTop")echo "selected"; ?>>Left Top</option>
-                    <option value="LeftBottom" <?php if($post_grid_social_share_position=="LeftBottom")echo "selected"; ?>>Left Bottom</option>                    
-                    <option value="RightTop" <?php if($post_grid_social_share_position=="RightTop")echo "selected"; ?>>Right Top</option>                    
-                    <option value="RightBottom" <?php if($post_grid_social_share_position=="RightBottom")echo "selected"; ?>>Right Bottom</option>
-                    
-                    <option value="TopMiddle" <?php if($post_grid_social_share_position=="TopMiddle")echo "selected"; ?>>Top Middle</option>                    
-                    <option value="BottomMiddle" <?php if($post_grid_social_share_position=="BottomMiddle")echo "selected"; ?>>Bottom Middle</option>                    
-                                      
-                  
-                    </select>                 
-                </div>               
+				               
                 
                 
                 
-				<div class="option-box">
-                
-                
-                    <p class="option-title">Read more position</p>
-                    <p class="option-info"></p>
-                
-					<select name="post_grid_read_more_position"  >
-                    <option value="TopMiddle" <?php if($post_grid_read_more_position=="TopMiddle")echo "selected"; ?>>Top Middle</option>
-                    <option value="LeftMiddle" <?php if($post_grid_read_more_position=="LeftMiddle")echo "selected"; ?>>Left Middle</option>                    
-                    <option value="RightMiddle" <?php if($post_grid_read_more_position=="RightMiddle")echo "selected"; ?>>Right Middle</option>                    
-                    <option value="BottomMiddle" <?php if($post_grid_read_more_position=="BottomMiddle")echo "selected"; ?>>Bottom Middle</option>                    
-                  
-                    </select>
-                
-                
-                    <p class="option-title">Read more hover style</p>
-                    <p class="option-info"></p>
-					<select name="post_grid_read_more_hov_in_style"  >
-                    <option value="zoomIn" <?php if($post_grid_read_more_hov_in_style=="zoomIn")echo "selected"; ?>>ZoomIn</option>
-                    <option value="fadeIn" <?php if($post_grid_read_more_hov_in_style=="fadeIn")echo "selected"; ?>>FadeIn</option>
-                    <option value="rotate" <?php if($post_grid_read_more_hov_in_style=="rotate")echo "selected"; ?>>Rotate</option>                                       
-                  
-                    </select>
-                    <p class="option-title">Content excerpt count</p>
-                    <p class="option-info"></p>
-					<input type="text" placeholder="30" name="post_grid_excerpt_count" value="<?php if(!empty($post_grid_excerpt_count)) echo $post_grid_excerpt_count; ?>" /><br />                       
-                    
-                    <p class="option-title">Read more Text</p>
-                    <p class="option-info"></p>
-					<input type="text" placeholder="Read More" name="post_grid_read_more_text" value="<?php if(!empty($post_grid_read_more_text)) echo $post_grid_read_more_text; else echo 'Read More'; ?>" /><br />        
-                    
-                    
-                    
-                    
-                    
-                    
-                                   
-                </div>
+
                 
                 
 				<div class="option-box">
@@ -455,7 +409,7 @@ function meta_boxes_post_grid_input( $post ) {
                 
                 
 				<div class="option-box">
-                    <p class="option-title">Display Comments</p>
+                    <p class="option-title">Display Comments Counts</p>
                     <p class="option-info"></p>
 					<select name="post_grid_meta_comments_display"  >
                     <option value="yes" <?php if($post_grid_meta_comments_display=="yes")echo "selected"; ?>>Yes</option>
@@ -469,6 +423,19 @@ function meta_boxes_post_grid_input( $post ) {
             </li>
             <li style="display: none;" class="box3 tab-box ">
 				
+                
+				<div class="option-box">
+                    <p class="option-title">Content excerpt count</p>
+                    <p class="option-info"></p>
+					<input type="text" placeholder="30" name="post_grid_excerpt_count" value="<?php if(!empty($post_grid_excerpt_count)) echo $post_grid_excerpt_count; ?>" /><br />                       
+                    
+                    <p class="option-title">Read more Text</p>
+                    <p class="option-info"></p>
+					<input type="text" placeholder="Read More" name="post_grid_read_more_text" value="<?php if(!empty($post_grid_read_more_text)) echo $post_grid_read_more_text; else echo 'Read More'; ?>" /><br />                   
+                </div> 
+                
+                
+                
 				<div class="option-box">
                     <p class="option-title"><?php _e('Post query order','post_grid'); ?></p>
                     <p class="option-info"></p>
@@ -490,11 +457,10 @@ function meta_boxes_post_grid_input( $post ) {
                     
                     <option value="author" <?php if($post_grid_query_orderby=="author") echo "selected"; ?>>Author</option>                                       
                     <option value="title" <?php if($post_grid_query_orderby=="title") echo "selected"; ?>>Title</option>
-                    <option value="name" <?php if($post_grid_query_orderby=="name") echo "selected"; ?>>Name</option>                    <option value="type" <?php if($post_grid_query_orderby=="type") echo "selected"; ?>>type</option>                    <option value="DESC" <?php if($post_grid_query_orderby=="DESC") echo "selected"; ?>>DESC</option>                    
+                    <option value="name" <?php if($post_grid_query_orderby=="name") echo "selected"; ?>>Name</option>                    <option value="type" <?php if($post_grid_query_orderby=="type") echo "selected"; ?>>Type</option>      
                     
                     
-                    
-                    <option value="DESC" <?php if($post_grid_query_orderby=="DESC") echo "selected"; ?>>DESC</option>
+               
 
                     </select>
                 </div>                
@@ -533,27 +499,92 @@ function meta_boxes_post_grid_input( $post ) {
 						}
 						?>
                 </div>
+
+            </li>
+            <li style="display: none;" class="box4 tab-box ">
+            
+				<div class="option-box">
+                    <p class="option-title">Grid Builder</p>
+                    <p class="option-info"></p>
+                    
+                   
+                    <?php
+                    		$Postgridbuilder = new PostgridClass();
+							echo $Postgridbuilder->settings_grid_items();
+					
+					?>
+                    
+
+ <script>
+ jQuery(document).ready(function($)
+	{
+jQuery(function() {
+$( ".items-container" ).sortable();
+//$( ".items-container" ).disableSelection();
+});
+
+})
+
+</script>        
+                    
+<script>
+jQuery(document).ready(function($)
+	{
+		$( ".draggable" ).draggable();
+        $( ".droppable, #droppable-inner" ).droppable({
+            activeClass: "ui-state-hover",
+            hoverClass: "ui-state-active",
+            drop: function( event, ui ) {
+				
+				var drop_item_id = ui.draggable.attr('id');
+				var drop_item_data_class = ui.draggable.attr('data-class');				
+				var drop_item_title = ui.draggable.attr('title');
+				
+				if(drop_item_data_class == 'saved-item')
+					{
+					
+					}
+				else
+					{
+				
+						//alert(ui.draggable.attr('id') + ' was dropped from ' + ui.draggable.parent().attr('id'));
+						$( this ).addClass( "ui-state-highlight" );
+						
+						// Move the dragged element into its new container
+						ui.draggable.attr('style','position:relative');
+						
+						
+						var content = '<div id="'+drop_item_id+'" data-class="saved-item" class="saved-item draggable ui-draggable ui-draggable-handle ui-sortable-handle" style="position:relative"><div class="header">'+drop_item_title+'<span class="input-switch"><input id="switch-'+drop_item_id+'" class="switch" type="checkbox" name="post_grid_items_display['+drop_item_id+']">&nbsp;<label for="switch-'+drop_item_id+'" title="Display on grid ?">&nbsp;</label></span><span class="remove">X</span><input type="hidden" name="post_grid_items['+drop_item_id+']" value="'+drop_item_title+'" /></div><div class="options"><b>'+drop_item_title+'</b> wrapper <input placeholder="<div>" type="text" name="post_grid_wrapper['+drop_item_id+'][start]" value="" /><b>'+drop_item_title+'</b> goes here <input placeholder="</div>"  type="text" name="post_grid_wrapper['+drop_item_id+'][end]" value="" /></div></div>';
+						
+						
+						$(this).children('.items-container').append(content);
+					}
+				
+
                 
-                
-                
-                 
+                return false;
+            }            
+        });
+	})
+</script>
+                    
+                    
+                    
+                    
+                    
+                </div> 
             </li>
         </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
     
     </div>
+    
+    
+    
+
+    
+    
+    
 <?php
 
 
@@ -600,21 +631,20 @@ function meta_boxes_post_grid_save( $post_id ) {
 	$post_grid_thumb_size = sanitize_text_field( $_POST['post_grid_thumb_size'] );	
 	$post_grid_empty_thumb = sanitize_text_field( $_POST['post_grid_empty_thumb'] );	
 		
-	$post_grid_social_share_position = sanitize_text_field( $_POST['post_grid_social_share_position'] );
 	$post_grid_social_share_display = sanitize_text_field( $_POST['post_grid_social_share_display'] );	
 	$post_grid_pagination_display = sanitize_text_field( $_POST['post_grid_pagination_display'] );		
 		
-	$post_grid_read_more_position = sanitize_text_field( $_POST['post_grid_read_more_position'] );
-	$post_grid_read_more_hov_in_style = sanitize_text_field( $_POST['post_grid_read_more_hov_in_style'] );
+
 	$post_grid_excerpt_count = sanitize_text_field( $_POST['post_grid_excerpt_count'] );	
 	$post_grid_read_more_text = sanitize_text_field( $_POST['post_grid_read_more_text'] );		
 			
 	$post_grid_query_order = sanitize_text_field( $_POST['post_grid_query_order'] );
 	$post_grid_query_orderby = sanitize_text_field( $_POST['post_grid_query_orderby'] );	
-	$post_grid_posttype = stripslashes_deep( $_POST['post_grid_posttype'] );		
+	$post_grid_posttype = stripslashes_deep( $_POST['post_grid_posttype'] );
+	
 		
 	$post_grid_items_width = sanitize_text_field( $_POST['post_grid_items_width'] );		
-	//$post_grid_thumb_width = sanitize_text_field( $_POST['post_grid_thumb_width'] );
+
 	$post_grid_thumb_height = sanitize_text_field( $_POST['post_grid_thumb_height'] );	
 	
 	$post_grid_meta_author_display = sanitize_text_field( $_POST['post_grid_meta_author_display'] );	
@@ -623,8 +653,11 @@ function meta_boxes_post_grid_save( $post_id ) {
 	$post_grid_meta_tags_display = sanitize_text_field( $_POST['post_grid_meta_tags_display'] );	
 	$post_grid_meta_comments_display = sanitize_text_field( $_POST['post_grid_meta_comments_display'] );		
 	
-		
 	
+	$post_grid_items = stripslashes_deep( $_POST['post_grid_items'] );	
+	$post_grid_wrapper = stripslashes_deep( $_POST['post_grid_wrapper'] );
+	$post_grid_items_display = stripslashes_deep( $_POST['post_grid_items_display'] );			
+	$post_grid_post_meta_fields = sanitize_text_field( $_POST['post_grid_post_meta_fields'] );	
 
   // Update the meta field in the database.
 	update_post_meta( $post_id, 'post_grid_post_per_page', $post_grid_post_per_page );	
@@ -635,12 +668,9 @@ function meta_boxes_post_grid_save( $post_id ) {
 	
 	update_post_meta( $post_id, 'post_grid_thumb_size', $post_grid_thumb_size );	
 	update_post_meta( $post_id, 'post_grid_empty_thumb', $post_grid_empty_thumb );	
-	update_post_meta( $post_id, 'post_grid_social_share_position', $post_grid_social_share_position );
 	update_post_meta( $post_id, 'post_grid_social_share_display', $post_grid_social_share_display );	
 	update_post_meta( $post_id, 'post_grid_pagination_display', $post_grid_pagination_display );		
-	
-	update_post_meta( $post_id, 'post_grid_read_more_position', $post_grid_read_more_position );
-	update_post_meta( $post_id, 'post_grid_read_more_hov_in_style', $post_grid_read_more_hov_in_style );
+
 	update_post_meta( $post_id, 'post_grid_excerpt_count', $post_grid_excerpt_count );	
 	update_post_meta( $post_id, 'post_grid_read_more_text', $post_grid_read_more_text );			
 	
@@ -659,7 +689,10 @@ function meta_boxes_post_grid_save( $post_id ) {
 	update_post_meta( $post_id, 'post_grid_meta_comments_display', $post_grid_meta_comments_display );	
 	
 	
-
+	update_post_meta( $post_id, 'post_grid_items', $post_grid_items );	
+	update_post_meta( $post_id, 'post_grid_wrapper', $post_grid_wrapper );
+	update_post_meta( $post_id, 'post_grid_items_display', $post_grid_items_display );	
+	update_post_meta( $post_id, 'post_grid_post_meta_fields', $post_grid_post_meta_fields );	
 }
 add_action( 'save_post', 'meta_boxes_post_grid_save' );
 

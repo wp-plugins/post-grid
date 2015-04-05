@@ -55,7 +55,7 @@
         
 	<div class="para-settings">
         <ul class="tab-nav"> 
-            <li nav="1" class="nav1 active">Help & Upgrade</li>
+            <li nav="1" class="nav1 active">Help & Support</li>
 
         </ul> <!-- tab-nav end -->
     

@@ -11,6 +11,7 @@
   margin: 40px 15px;
   max-width: 250px;
   padding: 0;
+  position: relative;
   text-align: center;
   vertical-align: top;
 }
@@ -27,9 +28,8 @@
   border: medium none;
   border-radius: 0;
   box-shadow: none;
-  width: 100%;
+  height: 100%;
 }
-
 
 .post-grid-container.rounded .title {
   font-size: 15px;

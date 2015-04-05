@@ -77,66 +77,12 @@
 
 
 
-.para-settings ul.voting-bg-img-list{}
-
-.para-settings ul.voting-bg-img-list li {
-  display: inline-block;
-  margin: 5px;
-}
-.para-settings ul.voting-bg-img-list li.bg-selected {}
-
-.para-settings ul.voting-bg-img-list li img{border: 2px solid #ffffff;}
-
-.para-settings ul.voting-bg-img-list li.bg-selected img{
-  border: 2px solid #ff5a11;
-}
 
 
 .para-settings h2 {
   font-size: 20px;
   font-weight: bold;
   margin: 25px 0;
-}
-
-.para-settings .pricing-table{
-
-}
-
-.para-settings .pricing-table .column {
-  border-bottom: 1px solid #ff9601;
-  border-left: 1px solid #ff9601;
-  border-top: 1px solid #ff9601;
-  display: inline-block;
-  float: left;
-  text-align: center;
-  vertical-align: top;
-  width: 48%;
-}
-
-.para-settings .pricing-table .column:last-child {
-  border-right: 1px solid #ff9601;
-}
-
-.para-settings .paln {
-
-  border-bottom: 1px solid rgb(255, 150, 1);
-  display: block;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 30px;
-  padding: 10px 0;
-}
-.para-settings .cell {
-  border-bottom: 1px solid rgb(255, 150, 1);
-  display: block;
-  line-height: 20px;
-  padding: 7px 0;
-}
-
-.para-settings .hidden-mob {
-
-  display: none;
-
 }
 
 
@@ -157,27 +103,6 @@
 
 }
 
-.para-settings .price {
-  font-size: 18px;
-  font-weight: bold;
-  padding: 25px 0;
-  border-bottom: 1px solid rgb(255, 150, 1);
-}
-
-
-.para-settings .buy-now {
-  background: none repeat scroll 0 0 rgb(221, 221, 221);
-  border-bottom: 2px solid rgb(157, 157, 157);
-  border-radius: 12px;
-  padding: 2px 12px;
-  text-decoration: none;
-}
-
-.para-settings .buy-now:hover {
-
-  border-bottom: 2px solid #706f6f;
-
-}
 
 
 
@@ -240,6 +165,77 @@
 .para-settings pre {
 
 }
+
+
+input.switch:empty
+{
+	margin-left: -999px;
+}
+input.switch:empty ~ label
+{
+	position: relative;
+	float: left;
+	line-height: 1.6em;
+	text-indent: 4em;
+	margin: 0.2em 0;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input.switch:empty ~ label:before, 
+input.switch:empty ~ label:after
+{
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: ' ';
+	width: 3.6em;
+	background-color: #e4e4e4;
+	border-radius: 0.3em;
+	box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
+	-webkit-transition: all 100ms ease-in;
+	transition: all 100ms ease-in;
+}
+
+input.switch:empty ~ label:after
+{
+	width: 1.4em;
+	top: 0.1em;
+	bottom: 0.1em;
+	margin-left: 0.1em;
+	background-color: #fff;
+	border-radius: 0.15em;
+	box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
+}
+
+
+input.switch:checked ~ label:before
+{
+	background-color: #69c8ff;
+}
+
+input.switch:checked ~ label:after
+{
+	margin-left: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

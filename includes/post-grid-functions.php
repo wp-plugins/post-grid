@@ -48,108 +48,6 @@ function post_grid_get_all_product_ids($postid)
 
 
 
-
-
-
-function post_grid_get_taxonomy_category($postid)
-	{
-		
-
-	
-	$post_grid_taxonomy = get_post_meta( $postid, 'post_grid_taxonomy', true );
-	if(empty($post_grid_taxonomy))
-		{
-			$post_grid_taxonomy= "";
-		}
-	$post_grid_taxonomy_category = get_post_meta( $postid, 'post_grid_taxonomy_category', true );
-	
-		
-		if(empty($post_grid_taxonomy_category))
-			{
-			 	$post_grid_taxonomy_category =array('none'); // an empty array when no category element selected
-				
-			
-			}
-
-		
-		
-		if(!isset($_POST['taxonomy']))
-			{
-			$taxonomy =$post_grid_taxonomy;
-			}
-		else
-			{
-			$taxonomy = $_POST['taxonomy'];
-			}
-		
-		
-		$args=array(
-		  'orderby' => 'name',
-		  'order' => 'ASC',
-		  'taxonomy' => $taxonomy,
-		  );
-	
-	$categories = get_categories($args);
-	
-	
-	if(empty($categories))
-		{
-		echo "No Items Found!";
-		}
-	
-	
-		$return_string = '';
-		$return_string .= '<ul style="margin: 0;">';
-	
-	foreach($categories as $category){
-		
-		if(array_search($category->cat_ID, $post_grid_taxonomy_category))
-		{
-	   $return_string .= '<li class='.$category->cat_ID.'><label ><input class="post_grid_taxonomy_category" checked type="checkbox" name="post_grid_taxonomy_category['.$category->cat_ID.']" value ="'.$category->cat_ID.'" />'.$category->cat_name.'</label ></li>';
-		}
-		
-		else
-			{
-				   $return_string .= '<li class='.$category->cat_ID.'><label ><input class="post_grid_taxonomy_category" type="checkbox" name="post_grid_taxonomy_category['.$category->cat_ID.']" value ="'.$category->cat_ID.'" />'.$category->cat_name.'</label ></li>';			
-			}
-		
-		
-
-		
-		}
-	
-		$return_string .= '</ul>';
-		
-		echo $return_string;
-	
-	if(isset($_POST['taxonomy']))
-		{
-			die();
-		}
-	
-		
-	}
-
-add_action('wp_ajax_post_grid_get_taxonomy_category', 'post_grid_get_taxonomy_category');
-add_action('wp_ajax_nopriv_post_grid_get_taxonomy_category', 'post_grid_get_taxonomy_category');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // solve error replace #038; by &
 
 function post_grid_fix_pagination($link) {
@@ -255,3 +153,38 @@ function post_grid_dark_color($input_color)
 	
 	
 	
+	
+	function post_grid_admin_notices()
+		{
+			$post_grid_license_key = get_option('post_grid_license_key');
+			
+			$html= '';
+			
+			
+			
+			if(empty($post_grid_license_key))
+				{
+					$admin_url = get_admin_url();
+					
+					$html.= '<div class="update-nag">';
+					$html.= 'Please activate your license for <b>'.post_grid_plugin_name.' &raquo; <a href="'.$admin_url.'edit.php?post_type=post_grid&page=post_grid_menu_license">License</a></b>';
+					$html.= '</div>';	
+				}
+			else
+				{
+
+				}
+			
+			
+			
+			
+			
+			
+								
+			
+			
+			echo $html;
+		}
+	
+	add_action('admin_notices', 'post_grid_admin_notices');
+		
