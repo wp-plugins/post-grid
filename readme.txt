@@ -72,6 +72,7 @@ then paste this shortcode anywhere in your page to display grid<br />
 2. screenshot-2
 3. screenshot-3
 4. screenshot-4
+5. screenshot-5
 
 == Changelog ==
 
