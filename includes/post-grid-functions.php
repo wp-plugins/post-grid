@@ -152,39 +152,5 @@ function post_grid_dark_color($input_color)
 		}
 	
 	
-	
-	
-	function post_grid_admin_notices()
-		{
-			$post_grid_license_key = get_option('post_grid_license_key');
-			
-			$html= '';
-			
-			
-			
-			if(empty($post_grid_license_key))
-				{
-					$admin_url = get_admin_url();
-					
-					$html.= '<div class="update-nag">';
-					$html.= 'Please activate your license for <b>'.post_grid_plugin_name.' &raquo; <a href="'.$admin_url.'edit.php?post_type=post_grid&page=post_grid_menu_license">License</a></b>';
-					$html.= '</div>';	
-				}
-			else
-				{
 
-				}
-			
-			
-			
-			
-			
-			
-								
-			
-			
-			echo $html;
-		}
-	
-	add_action('admin_notices', 'post_grid_admin_notices');
 		
