@@ -45,6 +45,14 @@ Use any where by short-codes and easy customize via short-code generator page, y
 * WooCommerce ready
 * Display Meta Fields on gird.
 
+<strong>Video Tutorial(with pro version interface)</strong><br />
+https://www.youtube.com/watch?v=JsDfu6LXtj4
+
+
+
+
+
+
 == Installation ==
 
 1. Install as regular WordPress plugin.<br />
