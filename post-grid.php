@@ -3,7 +3,7 @@
 Plugin Name: Post Grid
 Plugin URI: http://paratheme.com
 Description: Awesome post grid for query post from any post-type and display on grid.
-Version: 1.2
+Version: 1.3
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
@@ -20,7 +20,7 @@ define('post_grid_conatct_url', 'http://paratheme.com/contact/' );
 define('post_grid_qa_url', 'http://paratheme.com/qa/' );
 define('post_grid_plugin_name', 'Post Grid' );
 define('post_grid_share_url', 'https://wordpress.org/plugins/post-grid/' );
-define('post_grid_tutorial_video_url', '//www.youtube.com/embed/B0sOggSp3h9fE?rel=0' );
+define('post_grid_tutorial_video_url', '//www.youtube.com/embed/JsDfu6LXtj4?rel=0' );
 
 
 
@@ -97,7 +97,7 @@ register_activation_hook(__FILE__, 'post_grid_activation');
 
 function post_grid_activation()
 	{
-		$post_grid_version= "1.2";
+		$post_grid_version= "1.3";
 		update_option('post_grid_version', $post_grid_version); //update plugin version.
 		
 		$post_grid_customer_type= "free"; //customer_type "free"

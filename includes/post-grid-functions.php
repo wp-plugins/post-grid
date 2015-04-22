@@ -127,9 +127,21 @@ function post_grid_dark_color($input_color)
 		{
 			
 			?>
-<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwoocommerce-products-slider%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80&amp;appId=652982311485932" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
             
-            <br />
+            
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=652982311485932";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+            
+            
+<div class="fb-like" data-href="https://wordpress.org/plugins/post-grid/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            
+            <br /><br />
             <!-- Place this tag in your head or just before your close body tag. -->
             <script src="https://apis.google.com/js/platform.js" async defer></script>
             
