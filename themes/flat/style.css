@@ -36,6 +36,11 @@
   padding: 10px;
   text-align: left;
 }
+
+.post-grid-container.flat .title a {
+  text-decoration: none;
+}
+
 .post-grid-container.flat .meta {
   padding: 10px;
 }

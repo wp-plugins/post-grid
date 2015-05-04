@@ -38,6 +38,9 @@ function post_grid_themes_flat($post_id)
 		$post_grid_wrapper = get_post_meta( $post_id, 'post_grid_wrapper', true );		
 		$post_grid_items_display = get_post_meta( $post_id, 'post_grid_items_display', true );		
 		
+		$post_grid_post_title_linked = get_post_meta( $post_id, 'post_grid_post_title_linked', true );		
+		$post_grid_post_thumbnail_linked = get_post_meta( $post_id, 'post_grid_post_thumbnail_linked', true );
+		
 		if(empty($post_grid_items))
 			{
 			$post_grid_items = array('post_title'=>'Title',
@@ -158,7 +161,14 @@ function post_grid_themes_flat($post_id)
 										$html .= '<div class="title">';
 									}
 
-								$html .= get_the_title();
+								if($post_grid_post_title_linked == 'yes')
+									{
+									$html .= '<a href="'.get_the_permalink().'">'.get_the_title().'</a>';
+									}
+								else
+									{
+										$html .= get_the_title();
+									}
 
 								if(!empty($post_grid_wrapper[$key]['end']))
 									{
@@ -228,8 +238,14 @@ function post_grid_themes_flat($post_id)
 									$html .= '<div class="thumb" style="max-height:'.$post_grid_thumb_height.';" >';
 								}
 	
-								
-							$html .= '<img src="'.$thumb_url.'" />';	
+							if($post_grid_post_thumbnail_linked == 'yes')
+								{
+									$html .= '<a href="'.get_the_permalink().'"><img src="'.$thumb_url.'" /></a>';
+								}
+							else
+								{
+									$html .= '<img src="'.$thumb_url.'" />';
+								}
 							
 							if(!empty($post_grid_wrapper[$key]['end']))
 								{

@@ -3,8 +3,8 @@
 	Donate link: http://paratheme.com
 	Tags: post grid, grid, custom post grid, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter, 
 	Requires at least: 3.8
-	Tested up to: 4.2
-	Stable tag: 1.3
+	Tested up to: 4.2.1
+	Stable tag: 1.4
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,11 @@ then paste this shortcode anywhere in your page to display grid<br />
 5. screenshot-5
 
 == Changelog ==
+
+
+	= 1.4 =
+	* 05/03/2015 add-  Post link to title.
+	* 05/03/2015 add-  Post link to thumbnail.
 
 
 	= 1.3 =

@@ -38,6 +38,11 @@
   text-align: left;
 }
 
+.post-grid-container.rounded .title a {
+  text-decoration: none;
+}
+
+
 .post-grid-container.rounded .content {
   font-size: 13px;
   line-height: inherit;

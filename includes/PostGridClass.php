@@ -55,6 +55,9 @@ class PostgridClass
 					$post_grid_wrapper = $this->settings_grid_get_post_meta($post->ID, 'post_grid_wrapper');
 					$post_grid_items_display = $this->settings_grid_get_post_meta($post->ID, 'post_grid_items_display');
 					$post_grid_post_meta_fields = $this->settings_grid_get_post_meta($post->ID, 'post_grid_post_meta_fields');					
+					$post_grid_post_title_linked = $this->settings_grid_get_post_meta($post->ID, 'post_grid_post_title_linked');	
+					$post_grid_post_thumbnail_linked = $this->settings_grid_get_post_meta($post->ID, 'post_grid_post_thumbnail_linked');
+					
 					
 					$html = '';
 					
@@ -111,7 +114,61 @@ class PostgridClass
 							$html .= '<input style="width:80%" type="text" placeholder="post_view_count,post_share_count" name="post_grid_post_meta_fields['.$key.']" value="'.$post_grid_post_meta_fields.'" />';	
 							$html .= '</div>';
 						}
+						
+					elseif($key =='post_title')
+						{
+							$html .= '<div class="options-post_title"><br />';
+							$html .= 'Link to post ?<br />';
+							$html .= '<select name="post_grid_post_title_linked">';
+							
+							$html .= '<option value="yes"';
+							if($post_grid_post_title_linked == 'yes')
+								{
+									$html .= 'selected';
+								}
+							$html .= '>Yes</option>';							
+							
+							$html .= '<option value="no"';
+							if($post_grid_post_title_linked == 'no')
+								{
+									$html .= 'selected';
+								}
+							$html .= '>No</option>';							
+															
+							$html .= '</select>';														
 
+							$html .= '</div>';
+						}
+					elseif($key =='thumbnail')
+						{
+							$html .= '<div class="options-thumbnail"><br />';
+							$html .= 'Link to post ?<br />';
+							$html .= '<select name="post_grid_post_thumbnail_linked">';
+							
+							$html .= '<option value="yes"';
+							if($post_grid_post_thumbnail_linked == 'yes')
+								{
+									$html .= 'selected';
+								}
+							$html .= '>Yes</option>';							
+							
+							$html .= '<option value="no"';
+							if($post_grid_post_thumbnail_linked == 'no')
+								{
+									$html .= 'selected';
+								}
+							$html .= '>No</option>';							
+															
+							$html .= '</select>';														
+
+							$html .= '</div>';
+						}
+						
+					else
+						{
+							$html .= '';
+						
+						}
 					
 						
 					$html .= '</div>';									

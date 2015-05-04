@@ -95,7 +95,8 @@ function meta_boxes_post_grid_input( $post ) {
 	$post_grid_wrapper = get_post_meta( $post->ID, 'post_grid_wrapper', true );	
 	$post_grid_items_display = get_post_meta( $post->ID, 'post_grid_items_display', true );			
 	$post_grid_post_meta_fields = get_post_meta( $post->ID, 'post_grid_post_meta_fields', true );	
-
+	$post_grid_post_title_linked = get_post_meta( $post->ID, 'post_grid_post_title_linked', true );
+	$post_grid_post_thumbnail_linked = get_post_meta( $post->ID, 'post_grid_post_thumbnail_linked', true );
 ?>
 
     <div class="para-settings post-grid-settings">
@@ -658,7 +659,10 @@ function meta_boxes_post_grid_save( $post_id ) {
 	$post_grid_wrapper = stripslashes_deep( $_POST['post_grid_wrapper'] );
 	$post_grid_items_display = stripslashes_deep( $_POST['post_grid_items_display'] );			
 	$post_grid_post_meta_fields = sanitize_text_field( $_POST['post_grid_post_meta_fields'] );	
-
+	$post_grid_post_title_linked = sanitize_text_field( $_POST['post_grid_post_title_linked'] );
+	$post_grid_post_thumbnail_linked = sanitize_text_field( $_POST['post_grid_post_thumbnail_linked'] );
+	
+	
   // Update the meta field in the database.
 	update_post_meta( $post_id, 'post_grid_post_per_page', $post_grid_post_per_page );	
 	update_post_meta( $post_id, 'post_grid_themes', $post_grid_themes );
@@ -693,6 +697,10 @@ function meta_boxes_post_grid_save( $post_id ) {
 	update_post_meta( $post_id, 'post_grid_wrapper', $post_grid_wrapper );
 	update_post_meta( $post_id, 'post_grid_items_display', $post_grid_items_display );	
 	update_post_meta( $post_id, 'post_grid_post_meta_fields', $post_grid_post_meta_fields );	
+	
+	update_post_meta( $post_id, 'post_grid_post_title_linked', $post_grid_post_title_linked );	
+	update_post_meta( $post_id, 'post_grid_post_thumbnail_linked', $post_grid_post_thumbnail_linked );	
+	
 }
 add_action( 'save_post', 'meta_boxes_post_grid_save' );
 
