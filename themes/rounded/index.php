@@ -185,6 +185,7 @@ function post_grid_themes_rounded($post_id)
 						if(!empty($post_grid_items_display[$key]))
 							{
 							$content = get_the_content();
+							$content =  apply_filters('the_content', $content);
 							$content =  wp_trim_words( $content , $post_grid_excerpt_count, ' <a class="read-more" href="'.get_the_permalink().'">'.$post_grid_read_more_text.'</a>' );
 							
 							if(!empty($post_grid_wrapper[$key]['start']))

@@ -193,15 +193,7 @@
 
 
 
-.post-grid-container .grid-single:hover .social-icon {
-  margin: 0 auto;
-  padding: 0;
-  position: absolute;
-  text-align: center;
-  top: 100px;
-  width: 100%;
-  z-index: 2147483647;
-}
+
 
 
 
