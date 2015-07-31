@@ -20,7 +20,7 @@ Use any where by short-codes and easy customize via short-code generator page, y
 ### Post Grid by http://paratheme.com
 
 * [See the Live demo!&raquo;](http://paratheme.com/demo/post-grid/)
-
+* [Buy Premium! &raquo;](http://paratheme.com/items/post-grid-awesome-grid-for-any-post-type/)
 
 
 <strong>Plugin Features</strong><br />
@@ -38,6 +38,33 @@ Use any where by short-codes and easy customize via short-code generator page, y
 * Social share buttons different positions.
 * Custom grid width.
 * Custom grid thumbnail height.
+
+<strong>Premium Features</strong><br />
+
+* Query post from taxonomy & terms.
+* WooCommerce ready
+* Display Meta Fields on gird.
+* Grid items custom width for mobile device.
+* 8 different ready layout for themes.
+* Custom font color & font size for post title.
+* Custom font color & font size for post content.
+* WooCommerce Ready.
+* Display Meta Fields.
+* Display Short-code via Meta Fields.
+* Post Format Grid
+* Filterable Grid by custom taxonomy & terms.
+* MixitUp & Isotope grid.
+* 32 ready hover effect for hover items.
+* Ajax load more.
+* Extend grid items by filter hook. (Please see the demo addon inside plugin folder “demo-addons” )
+* Extend grid themes by filter hook. create your own theme in a minute.
+* exclude by post id’s.
+
+
+
+
+<strong>Video Tutorial(with pro version interface)</strong><br />
+https://www.youtube.com/watch?v=JsDfu6LXtj4
 
 
 == Installation ==
