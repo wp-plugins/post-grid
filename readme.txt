@@ -4,7 +4,7 @@
 	Tags: post grid, grid, custom post grid, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter, 
 	Requires at least: 3.8
 	Tested up to: 4.2.2
-	Stable tag: 1.5
+	Stable tag: 1.6
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ Use any where by short-codes and easy customize via short-code generator page, y
 ### Post Grid by http://paratheme.com
 
 * [See the Live demo!&raquo;](http://paratheme.com/demo/post-grid/)
-* [Buy Premium! &raquo;](http://paratheme.com/items/post-grid-awesome-grid-for-any-post-type/)
+
 
 
 <strong>Plugin Features</strong><br />
@@ -38,19 +38,6 @@ Use any where by short-codes and easy customize via short-code generator page, y
 * Social share buttons different positions.
 * Custom grid width.
 * Custom grid thumbnail height.
-
-<strong>Premium Features</strong><br />
-
-* Query post from taxonomy & terms.
-* WooCommerce ready
-* Display Meta Fields on gird.
-
-<strong>Video Tutorial(with pro version interface)</strong><br />
-https://www.youtube.com/watch?v=JsDfu6LXtj4
-
-
-
-
 
 
 == Installation ==
@@ -78,11 +65,14 @@ then paste this shortcode anywhere in your page to display grid<br />
 
 1. screenshot-1
 2. screenshot-2
-3. screenshot-3
-4. screenshot-4
-5. screenshot-5
 
 == Changelog ==
+
+	= 1.6 =
+	* 13/05/2015 add-  Custom CSS box.
+	* 13/05/2015 edit- Improved Grid Builder.
+	* 13/05/2015 add- hover animation for hover items.
+	* 13/05/2015 add- display thumbnail via External Featured Image(meta key).		
 
 	= 1.5 =
 	* 13/05/2015 fix-  flter content.

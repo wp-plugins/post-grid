@@ -2,13 +2,14 @@
 /* CSS Document */
 
 
+
 .post-grid-container.rounded {
   text-align: center;
 }
 
 .post-grid-container.rounded .grid-single {
   display: inline-block;
-  margin: 40px 15px;
+  margin: 20px 15px;
   max-width: 250px;
   padding: 0;
   position: relative;
@@ -24,17 +25,25 @@
   position: relative;
 }
 
+.grid-single.post-formats .thumb {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  height: auto !important;
+}
+
 .post-grid-container.rounded .thumb img {
   border: medium none;
   border-radius: 0;
   box-shadow: none;
   height: 100%;
+  width: 100%;
 }
+
 
 .post-grid-container.rounded .title {
   font-size: 15px;
   font-weight: bold;
-  padding: 15px 0;
+  padding: 10px;
   text-align: left;
 }
 
@@ -42,21 +51,71 @@
   text-decoration: none;
 }
 
+.post-grid-container.rounded .meta {
+  padding: 10px;
+}
+
+
+
+
+
+.post-grid-container.rounded .pg-woocommerce {
+  padding: 10px;
+}
+
+.post-grid-container.rounded .pg-price {
+
+
+}
+.post-grid-container.rounded .pg-price .amount {
+  font-size: 18px;
+}
+
+.post-grid-container.rounded .pg-cart {
+
+}
+.post-grid-container.rounded .pg-cart p {
+  border: medium none !important;
+  margin-bottom: 0 !important;
+  padding: 10px 0 !important;
+}
+.post-grid-container.rounded .pg-cart .amount {
+  display: none;
+}
+
+.post-grid-container.rounded .pg-rating {
+  padding: 10px 0;
+}
+
+
+.post-grid-container.rounded .pg-rating .star-rating {
+  float: none !important;
+  margin: 0 auto;
+}
+
 
 .post-grid-container.rounded .content {
   font-size: 13px;
   line-height: inherit;
+  padding: 10px;
   text-align: left;
 }
 
-.post-grid-container.rounded .content .read-more{
-	text-decoration:none;
+.post-grid-container.rounded .content .read-more {
+  font-weight: bold;
+  text-decoration: none;
 }
 
 
+.post-grid-container.rounded .meta-fields {
+  padding: 10px;
 
+}
 
-
+.post-grid-container.rounded .meta-fields .meta-single {
+  font-size: 13px;
+  padding: 5px 0;
+}
 
 
 

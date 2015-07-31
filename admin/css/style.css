@@ -75,11 +75,9 @@ border:1px dashed #999;
 
 
 .post-grid-settings .post-grid-builder .canvas {
-  background: none repeat scroll 0 0 rgb(230, 230, 230);
-  border: 1px solid rgb(153, 153, 153);
   margin: 20px 0;
   min-height: 100px;
-  padding: 10px 10px 50px;
+
 }
 
 .post-grid-settings .post-grid-builder .canvas .saved-item {
@@ -105,7 +103,6 @@ border:1px dashed #999;
 
 .post-grid-settings .post-grid-builder .canvas .saved-item.active .header {
   border-bottom: 1px solid rgb(153, 153, 153);
-  margin-bottom: 15px;
   padding: 7px 10px;
 }
 .post-grid-settings .post-grid-builder .canvas .saved-item .options {
@@ -117,14 +114,6 @@ border:1px dashed #999;
 	padding: 7px 10px;
 }
 
-.post-grid-settings .post-grid-builder .canvas .saved-item .remove {
-  background: none repeat scroll 0 0 rgb(255, 137, 65);
-  cursor: pointer;
-  display: inline-block;
-  float: right;
-  padding: 0 5px;
-  position: relative;
-}
 
 .post-grid-settings #post-grid-builder {
   width: 100%;

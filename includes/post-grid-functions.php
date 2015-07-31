@@ -1,50 +1,78 @@
 <?php
 
+/*
+* @Author 		ParaTheme
+* @Folder	 	post-grid/includes
+
+* Copyright: 	2015 ParaTheme
+*/
+
+if ( ! defined('ABSPATH')) exit;  // if direct access
 
 
-function post_grid_get_all_product_ids($postid)
-	{
-		
-		$post_grid_product_ids = get_post_meta( $postid, 'post_grid_product_ids', true );
-		
-		
-		
-		$return_string = '';
-		$return_string .= '<ul style="margin: 0;">';
-		
-		
-		
-		$args_product = array(
-		'post_type' => 'product',
-		'posts_per_page' => -1,
-		);
 
-		$product_query = new WP_Query( $args_product );
+function post_grid_get_blockquote() {
 	
-		if($product_query->have_posts()): while($product_query->have_posts()): $product_query->the_post();
-		
-
-	   $return_string .= '<li><label ><input class="post_grid_product_ids" type="checkbox" name="post_grid_product_ids['.get_the_ID().']" value ="'.get_the_ID().'" ';
-		
-		if ( isset( $post_grid_product_ids[get_the_ID()] ) )
-			{
-			$return_string .= "checked";
-			}
-		
-		
-		
-		
-		$return_string .= '/>';
-
-		$return_string .= get_the_title().'</label ></li>';
-			
-		endwhile;   endif; wp_reset_query();
-		
-		
-		$return_string .= '</ul>';
-		echo $return_string;
+    $content = get_the_content();
+    $content = apply_filters( 'the_content', $content );	
+	preg_match('~<blockquote>([^{]*)</blockquote>~i', $content, $match);
+	return $match[1];
 	
-	}
+}
+
+
+
+
+function post_grid_get_link_url() {
+    $content = get_the_content();
+    $has_url = get_url_in_content( $content );
+
+    $link =  ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
+	
+	return '<a href="'.$link.'">'.$link.'</a>';
+	
+}
+
+function post_grid_first_embed_media($post_id ) {
+
+
+    $post = get_post($post_id);
+    $content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
+    $embeds = get_media_embedded_in_content( $content );
+
+    if( !empty($embeds) ) {
+        //return first embed
+        return $embeds[0];
+
+    } else {
+        //No embeds found
+        return false;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -60,88 +88,13 @@ add_filter('paginate_links', 'post_grid_fix_pagination');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function post_grid_dark_color($input_color)
-	{
-		if(empty($input_color))
-			{
-				return "";
-			}
-		else
-			{
-				$input = $input_color;
-			  
-				$col = Array(
-					hexdec(substr($input,1,2)),
-					hexdec(substr($input,3,2)),
-					hexdec(substr($input,5,2))
-				);
-				$darker = Array(
-					$col[0]/2,
-					$col[1]/2,
-					$col[2]/2
-				);
-		
-				return "#".sprintf("%02X%02X%02X", $darker[0], $darker[1], $darker[2]);
-			}
-
-		
-		
-	}
-	
-	
-	
-	
-	
 	function post_grid_share_plugin()
 		{
 			
 			?>
+<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwoocommerce-products-slider%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80&amp;appId=652982311485932" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
             
-            
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=652982311485932";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-            
-            
-<div class="fb-like" data-href="https://wordpress.org/plugins/post-grid/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-            
-            <br /><br />
+            <br />
             <!-- Place this tag in your head or just before your close body tag. -->
             <script src="https://apis.google.com/js/platform.js" async defer></script>
             
@@ -162,6 +115,7 @@ function post_grid_dark_color($input_color)
 		
 		
 		}
+	
 	
 	
 

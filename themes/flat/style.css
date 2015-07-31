@@ -97,15 +97,15 @@
 }
 
 
+.post-grid-container.flat .meta-fields {
+  padding: 10px;
 
+}
 
-
-
-
-
-
-
-
+.post-grid-container.flat .meta-fields .meta-single {
+  font-size: 13px;
+  padding: 5px 0;
+}
 
 
 

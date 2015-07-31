@@ -31,7 +31,7 @@ jQuery(document).ready(function($)
 		
 		
 		
-		jQuery(".post_grid_taxonomy").click(function()
+		$(".post_grid_taxonomy").click(function()
 			{
 				
 
@@ -55,18 +55,6 @@ jQuery(document).ready(function($)
 		
 			})
 		
-	
- 		
-		
-
-		$(document).on('click', '.post-grid-builder .canvas .remove', function()
-			{
-				$(this).parent().parent().remove();
-				
-			})
-
-
-
 
 
 
