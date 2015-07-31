@@ -4,7 +4,7 @@
 	Tags: post grid, grid, custom post grid, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter, 
 	Requires at least: 3.8
 	Tested up to: 4.2.2
-	Stable tag: 1.6
+	Stable tag: 1.7
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,10 @@ then paste this shortcode anywhere in your page to display grid<br />
 
 == Changelog ==
 
+
+	= 1.7 =
+	* 13/05/2015 fix-  license issue fixed.
+	
 	= 1.6 =
 	* 13/05/2015 add-  Custom CSS box.
 	* 13/05/2015 edit- Improved Grid Builder.

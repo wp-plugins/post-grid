@@ -16,8 +16,7 @@ class class_post_grid_shortcodes{
     {
 		
 		add_shortcode( 'post_grid', array( $this, 'post_grid_display' ) );
-		//add_action( 'admin_menu', array( $this, 'admin_menu' ), 12 );
-    	//add_action('admin_menu', array($this, 'create_menu'));
+
     }
 	
 	public function post_grid_display($atts, $content = null ) {
@@ -31,12 +30,6 @@ class class_post_grid_shortcodes{
 				$post_id = $atts['id'];
 	
 				$post_grid_themes = get_post_meta( $post_id, 'post_grid_themes', true );
-				$post_grid_license_key = get_option('post_grid_license_key');
-				
-				if(empty($post_grid_license_key))
-					{
-						return '<b>"'.post_grid_plugin_name.'" Error:</b> Please activate your license.';
-					}
 				
 				$class_post_grid_functions = new class_post_grid_functions();
 				$post_grid_themes_dir = $class_post_grid_functions->post_grid_themes_dir();
