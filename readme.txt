@@ -1,9 +1,9 @@
-=== Post Grid ===
+﻿=== Post Grid ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
 	Tags: post grid, grid, custom post grid, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter, 
 	Requires at least: 3.8
-	Tested up to: 4.2.2
+	Tested up to: 4.2.4
 	Stable tag: 1.7
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
